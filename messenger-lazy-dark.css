@@ -1,0 +1,731 @@
+/* ==UserStyle==
+@name           messenger lazy dark
+@namespace      stdio.h
+@version        1
+@description    version zucc mode
+@author         7aint
+@updateURL      https://userstyles.world/api/style/7074.user.css
+@preprocessor stylus
+@var checkbox noSendEmojiButt "Hide send/emoji button" 0
+@var checkbox noSidesidebar "Hide facebook.com side sidebar" 0
+@var select color "Color" { 
+  "Pink": "2",
+  "Blue": "3",
+  "Black": "1",  
+  "Dark": "0" 
+}
+@var checkbox isBG "Custom background" 1
+@var text nothing "> Images can only come from photos uploaded in facebook. Example: " "\"<fbcdn URL>\""
+@var text BG1 "- Image URL Main " "\"https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif\""
+@var text BG2 "- Image URL Navigation " "\"https://media0.giphy.com/media/rRKcpDgvYNpEk/giphy.gif\""
+@var text BGFGhue "- Background Hue" 0deg
+@var text gradientAngleM "- Gradient Angle Main" -108deg
+@var text chatBoxSurrBlur "- Chat Box Enclosure Blur" 0.4em
+@var color chatBoxSurrBG "- Chat Box Enclosure" #0002
+@var color gradientColor1m "- Gradient Main L" #0007
+@var color gradientColor2m "- Gradient Main R" #000E
+@var color gradientColor1n "- Gradient Navigation L *" #0000
+@var color gradientColor2n "- Gradient Navigation R" #000E
+==/UserStyle== */
+
+@-moz-document regexp("http(|s):\\/\\/(|www.)(facebook.com\\/(mess|groupcall)|messenger.com).*") {
+  .__fb-dark-mode, .__fb-light-mode { /* mark zucc */ /* there are probably stuff unused. too lazy to find them one by 1*/
+    --fds-blue-05: black;
+    --fds-blue-30: black;
+    --fds-blue-40: black;
+    --fds-blue-60: black;
+    --fds-blue-70: black;
+    --fds-blue-80: black;
+    --fds-button-text: black;
+    --fds-comment-background: black;
+    --fds-dark-mode-gray-35: black;
+    --fds-dark-mode-gray-50: black;
+    --fds-dark-mode-gray-70: black;
+    --fds-dark-mode-gray-80: black;
+    --fds-dark-mode-gray-90: black;
+    --fds-dark-mode-gray-100: black;
+    --fds-gray-00: black;
+    --fds-gray-05: black;
+    --fds-gray-10: black;
+    --fds-gray-20: black;
+    --fds-gray-25: black;
+    --fds-gray-30: black;
+    --fds-gray-45: black;
+    --fds-gray-70: black;
+    --fds-gray-80: black;
+    --fds-gray-90: black;
+    --fds-gray-100: black;
+    --fds-green-55: black;
+    --fds-highlight: black;
+    --fds-highlight-cell-background: black;
+    --fds-red-55: black;
+    --fds-spectrum-aluminum-tint-70: black;
+    --fds-spectrum-blue-gray-tint-70: black;
+    --fds-spectrum-cherry: black;
+    --fds-spectrum-cherry-tint-70: black;
+    --fds-spectrum-grape-tint-70: black;
+    --fds-spectrum-grape-tint-90: black;
+    --fds-spectrum-lemon-dark-1: black;
+    --fds-spectrum-lemon-tint-70: black;
+    --fds-spectrum-lime: black;
+    --fds-spectrum-lime-tint-70: black;
+    --fds-spectrum-orange-tint-70: black;
+    --fds-spectrum-orange-tint-90: black;
+    --fds-spectrum-seafoam-tint-70: black;
+    --fds-spectrum-slate-dark-2: black;
+    --fds-spectrum-slate-tint-70: black;
+    --fds-spectrum-teal: black;
+    --fds-spectrum-teal-dark-1: black;
+    --fds-spectrum-teal-dark-2: black;
+    --fds-spectrum-teal-tint-70: black;
+    --fds-spectrum-teal-tint-90: black;
+    --fds-spectrum-tomato: black;
+    --fds-spectrum-tomato-tint-30: black;
+    --fds-spectrum-tomato-tint-90: black;
+    --fds-white: black;
+    --fds-white-alpha-05: rgba(255, 255, 255, 0.05);
+    --fds-white-alpha-10: rgba(255, 255, 255, 0.1);
+    --fds-white-alpha-20: rgba(255, 255, 255, 0.2);
+    --fds-white-alpha-30: rgba(255, 255, 255, 0.3);
+    --fds-white-alpha-60: rgba(255, 255, 255, 0.6);
+    --fds-white-alpha-80: rgba(255, 255, 255, 0.8);
+    --fds-yellow-20: black;
+    --always-dark-gradient: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+    --always-dark-overlay: rgba(0, 0, 0, 0.4);
+    --always-light-overlay: rgba(255, 255, 255, 0.4);
+    --always-gray-40: #65676B;
+    --always-gray-75: #BCC0C4;
+    --always-gray-95: #F0F2F5;
+    --attachment-footer-background: rgba(255,255,255,0.1);
+    --border-focused: #8A8D91;
+    --disabled-button-text: rgba(255, 255, 255, 0.3);
+    --disabled-icon: rgba(255, 255, 255, 0.3);
+    --event-date: #F3425F;
+    --fb-wordmark: #FFFFFF;
+    --glimmer-spinner-icon: white;
+    --hero-banner-background: #E85D07;
+    --highlight-bg: rgba(24, 119, 242, .31);
+    --list-cell-chevron: #B0B3B8;
+    --media-hover: rgba(68, 73, 80, 0.15);
+    --media-inner-border: rgba(255, 255, 255, 0.05);
+    --media-outer-border: #33363A;
+    --media-pressed: rgba(68, 73, 80, 0.35);
+    --messenger-reply-background: #18191a91; 
+    --overlay-alpha-80: rgba(11, 11, 11, 0.8);
+    --overlay-on-media: rgba(0, 0, 0, 0.6);
+    --nav-bar-background: #242526;
+    --nav-bar-background-gradient: linear-gradient(to top, #242526, rgba(36,37,38,.9), rgba(36,37,38,.7), rgba(36,37,38,.4), rgba(36,37,38,0));
+    --nav-bar-background-gradient-wash: linear-gradient(to top, #18191A, rgba(24,25,26,.9), rgba(24,25,26,.7), rgba(24,25,26,.4), rgba(24,25,26,0));
+    --negative: hsl(350, 87%, 55%);
+    --negative-background: hsl(350, 87%, 55%, 20%);
+    --new-notification-background: #E7F3FF;
+    --notification-badge: #e41e3f;
+    --placeholder-icon: #8A8D91;
+    --placeholder-image: rgb(164, 167, 171);
+    --placeholder-text-on-media: rgba(255, 255, 255, 0.5);
+    --positive: #31A24C;
+    --positive-background: #1F3520;
+    --primary-button-icon: #FFFFFF;
+    --primary-button-pressed: #77A7FF;
+    --primary-button-text: #FFFFFF;
+    --primary-deemphasized-button-pressed: rgba(24, 119, 242, 0.2);
+    --primary-deemphasized-button-pressed-overlay: rgba(25, 110, 255, 0.15);
+    --primary-text-on-media: white;
+    --primary-web-focus-indicator: #D24294;
+    --progress-ring-neutral-background: rgba(255, 255, 255, 0.2);
+    --progress-ring-neutral-foreground: #ffffff;
+    --progress-ring-on-media-background: rgba(255, 255, 255, 0.2);
+    --progress-ring-on-media-foreground: #FFFFFF;
+    --progress-ring-blue-foreground: hsl(214, 100%, 59%);
+    --progress-ring-blue-background: rgba(45, 136, 255, 0.2);
+    --progress-ring-disabled-background: rgba(122,125,130, 0.2);
+    --progress-ring-disabled-foreground: #7A7D82;
+    --rating-star-active: #FF9831;
+    --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(255, 255, 255, 0.05) inset;
+    --secondary-button-background-on-dark: rgba(255, 255, 255, 0.4);
+    --secondary-button-pressed: rgba(0, 0, 0, 0.05);
+    --secondary-button-stroke: transparent;
+    --secondary-button-text: #E4E6EB;
+    --secondary-icon: #B0B3B8;
+    --secondary-text-on-media: rgba(255, 255, 255, 0.9);
+    --section-header-text: #BCC0C4;
+    --shadow-1: rgba(0, 0, 0, 0.1);
+    --shadow-2: rgba(0, 0, 0, 0.2);
+    --shadow-5: rgba(0, 0, 0, 0.5);
+    --shadow-8: rgba(0, 0, 0, 0.8);
+    --shadow-inset: rgba(255, 255, 255, 0.05);
+    --shadow-elevated: 0px 5px 12px rgba(28, 43, 51, 0.6);
+    --shadow-persistent: 0px 0px 12px rgba(28, 43, 51, 0.6);
+    --shadow-primary: 0px 0px 12px rgba(28, 43, 51, 0.1);
+    --text-highlight: rgba(24, 119, 242, 0.45);
+    --text-input-background: #242526;
+    --toast-background: #242526;
+    --toast-text: #FFFFFF;
+    --toast-text-link: #4599FF;
+    --toggle-active-icon: #FFFFFF;
+    --toggle-active-text: #FFFFFF;
+    --toggle-button-active-background: #E6F2FF;
+    --card-box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1);
+
+     if (noSidesidebar == 1) {
+      --global-panel-width: 0; 
+     }
+}
+  
+  /* _/_/_/_/_/_/_/ lazy patches _/_/_/_/_/_/ */
+  
+  #facebook { /* firefox specific window scroll removal */
+    scrollbar-width: none;
+  }
+  #facebook::-webkit-scrollbar /* chrome specific window scrollbar removal */ {
+    display: none;
+  }
+  
+  div[role="banner"] + div + div,
+  div[role="navigation"] > div > div > div > div > div:nth-child(4):not(div[data-pagelet]):not(div[id]),
+  div[role="navigation"] > div > div > div > div > div:nth-child(5):not(div[data-pagelet]):not(div[id]) { /* ad remove (facebook.com) */
+    display: none;
+  } /* for sudden major breakage
+  #facebook:after {
+    display:block;
+    position: absolute;
+    top:0.7em;
+    left: 70px;
+    color: #e3f900cf;
+    font-size: 14px;
+    background-color: #202020;
+    padding: 0.5em;
+    border: 1px #fff4 solid;
+    border-radius: 0.5em;
+    content: "Note: Style fixing on progress!";
+  } */
+  
+  if isBG == 1 { /* first pass (yes i know this magical spaghetti)*/
+   .__fb-light-mode, .__fb-dark-mode {
+      --surface-background: #0000; /* chat list bg + sidebar bg */
+      --messenger-card-background: #0000; /* chat box + chat info */
+      --comment-footer-background: #ffffff08; /* reply blob bg */
+    } 
+    div[role="main"] * { /* for (facebook.com) */
+      --messenger-card-background: #0000; /* chat box + chat info */
+    }
+    div[role="navigation"] * { /* for (facebook.com) */
+      --surface-background: #0000; /* chat list bg + sidebar bg */
+    }
+  }
+  
+  .__fb-dark-mode, .__fb-light-mode { /* theme coloring */
+  
+    color-scheme: dark; /* chrome specific */
+  
+    --lazy-color-a00: #111;  /* --web-wash */
+    
+    --lazy-color-b01: #fffc; /* --always-white */
+    --lazy-color-b02: #fffc; /* --always-black */
+    
+    --lazy-color-c01: #fffa; /* --primary-text */
+    --lazy-color-c02: #828282 ; /* --secondary-text */
+    
+    --lazy-color-d01: #ffffff03; /* --surface-background */
+    --lazy-color-d02: #aaa; /* --accent */
+    --lazy-color-d03: #252527; /* --popover-background */
+    --lazy-color-d04: #0b0b0b21; /* --divider */
+    --lazy-color-d05: #d5d5d50f; /* --hosted-view-selected-state */
+    --lazy-color-d06: #f9f9f917; /* --hover-overlay */
+    --lazy-color-d07: #f9f9f936; /* --press-overlay */
+    --lazy-color-d08: #fff; /* --scroll-thumb */
+    
+    --lazy-color-e01: #242527; /* --messenger-card-background */
+    --lazy-color-e02: #ffffff0a; /* --comment-background */
+    --lazy-color-e03: #ffffff08; /* --comment-footer-background */
+    --lazy-color-e04: #f7b9287d; /* --base-lemon */
+    --lazy-color-e05: #363638; /* --wash */
+    --lazy-color-e06: #ffffff1f; /* --fds-black-alpha-05 */
+    --lazy-color-e07: #8A8D91; /* --placeholder-text */
+    --lazy-color-e08: #fff4; /* --disabled-text */
+    --lazy-color-e09: #fff3; /* --mw-blockquote-border-start-color */
+    --lazy-color-e09: #fff; /* --base-lime */
+    
+    --lazy-color-f01: #212222eb; /* --card-background */
+    --lazy-color-f02: #424242; /* --primary-button-background */
+    --lazy-color-f03: #3e3e3e; /* --disabled-button-background */
+    --lazy-color-f04: #fff1; /* --primary-deemphasized-button-background */
+    --lazy-color-f05: #fffa; /* --primary-deemphasized-button-text */
+    --lazy-color-f06: #fffa; /* --card-background-flat */  
+    --lazy-color-f07: #e6000096; /* --warning */
+    
+    --lazy-color-g01: #fff1; /* --secondary-button-background */
+    --lazy-color-g02: #282829; /* --secondary-button-background-floating */
+    --lazy-color-g03: #8686864a; /* --non-media-pressed-on-dark */
+    --lazy-color-g04: #1a1a1a85; /* --non-media-pressed */
+    
+    --bg-fg-nonprop: hue-rotate(BGFGhue) blur(chatBoxSurrBlur);
+    --bg-fg-nonprop-deblur: hue-rotate(BGFGhue);
+    --bg-fg-prop: hue-rotate(0) saturate(0) blur(chatBoxSurrBlur);
+    --bg-fg-prop-deblur: hue-rotate(0) saturate(0);
+    --chat-enclosure-bg: chatBoxSurrBG;
+    --blob-bg: #fff1;
+    --blob-bg-wbg: #333;
+    --img-icons: invert(.75);  
+    --svg-icons: #fff9; 
+    --scroll-h: #fff4;
+    --poll-vote: #fff7;
+    --end-call: #e600006e;
+    
+    if color == 1 {
+      --lazy-color-c01: #fff9; 
+      --lazy-color-c02: #757575;  
+      
+      --lazy-color-d01: #000; 
+      
+      --lazy-color-e01: #000; 
+      if isBG == 1 {
+        --lazy-color-e03: #ffffff08; 
+      } else {
+        --lazy-color-e03: #ffffff15; 
+      }
+      --lazy-color-e05: #202020; 
+      
+      --blob-bg: #ffffff0a;
+      --blob-bg-wbg: #202020;
+      --img-icons: invert(.50);  
+      --svg-icons: #fff7; 
+      --scroll-h: #fff2;
+      
+    } if color == 2 {
+      --lazy-color-c01: #f1b8dab3;
+      --lazy-color-c02: #f97cc46e;
+
+      --lazy-color-d01: #5a2b4212;
+      --lazy-color-d02: #a43474;
+      --lazy-color-d03: #252527;
+      --lazy-color-d04: #4400286e;
+      --lazy-color-d05: #1c0013a8;
+      --lazy-color-d06: #ff72cb17;
+      --lazy-color-d07: #ff9aec36;
+      --lazy-color-d08: #fff;
+
+      --lazy-color-e01: #2b1c23;
+      --lazy-color-e02: #ff00bc0a;
+      --lazy-color-e03: #ff007c0d;
+      --lazy-color-e04: #f7284442;
+      --lazy-color-e05: #ff009c0a;
+      --lazy-color-e06: #00000045;
+      --lazy-color-e07: #a2558f;
+      --lazy-color-e08: #6d3d50;
+      --lazy-color-e09: #ad436d80;
+      --lazy-color-e12: #a0007a2b;
+      --lazy-color-e13: #77415f;
+      --lazy-color-e14: #d33c99;
+      
+      --lazy-color-f01: #200716eb;
+      --lazy-color-f02: #55002d;
+      --lazy-color-f03: #2f1a26;
+      --lazy-color-f04: #ff007c11;
+      --lazy-color-f05: #ff85b6aa;
+      --lazy-color-f06: #fff;
+      --lazy-color-f07: #ff5900a1;
+
+      --lazy-color-g01: #150009d1;
+      --lazy-color-g02: #380028;
+      --lazy-color-g03: #ff3ec83b;
+      --lazy-color-g04: #3800285c;
+      
+      --blob-bg: #e050ba21;
+      --blob-bg-wbg: #3c1a2f;
+      --img-icons: invert(.75) sepia(100%) saturate(75) hue-rotate(-60deg) brightness(0.70); 
+      --svg-icons: var(--accent); 
+      --scroll-h: #c800914f;
+      --poll-vote: #99003477;
+      --end-call: #3e000c;
+      --bg-fg-nonprop: hue-rotate(BGFGhue) blur(chatBoxSurrBlur);
+      --bg-fg-nonprop-deblur: hue-rotate(BGFGhue);
+      --bg-fg-prop: hue-rotate(0) blur(chatBoxSurrBlur);
+      --bg-fg-prop-deblur: hue-rotate(0);
+      
+    } if color == 3 {
+      --lazy-color-c01: #b8c6f1b3;
+      --lazy-color-c02: #7cbbf96e;
+
+      --lazy-color-d01: #2b345a12;
+      --lazy-color-d02: #3452a4;
+      --lazy-color-d03: #252627;
+      --lazy-color-d04: #0016446e;
+      --lazy-color-d05: #2b81e40f;
+      --lazy-color-d06: #72b9ff17;
+      --lazy-color-d07: #9ad7ff36;
+      --lazy-color-d08: #fff;
+
+      --lazy-color-e01: #1c1d2b;
+      --lazy-color-e02: #1043b32b;
+      --lazy-color-e03: #1953ff1a;
+      --lazy-color-e04: #287bf742;
+      --lazy-color-e05: #0066ff0a;
+      --lazy-color-e06: #00000045;
+      --lazy-color-e07: #3e5c91;
+      --lazy-color-e08: #3d516d;
+      --lazy-color-e09: #435fad80;
+      --lazy-color-e10: #fff;
+      --lazy-color-e11: #fff;
+      --lazy-color-e12: #001c5e73;
+      --lazy-color-e13: #51679e;
+      --lazy-color-e14: #899ac6;
+      
+      --lazy-color-f01: #071120eb;
+      --lazy-color-f02: #001f55;
+      --lazy-color-f03: #1a202f;
+      --lazy-color-f04: #07f1;
+      --lazy-color-f05: #85beffaa;
+      --lazy-color-f06: #fff;
+      --lazy-color-f07: #00ffcca1;
+
+      --lazy-color-g01: #000915d1;
+      --lazy-color-g02: #001738;
+      --lazy-color-g03: #3e8bff3b;
+      --lazy-color-g04: #0019385c;
+      
+      --blob-bg: #507ee021;
+      --blob-bg-wbg: #1e2547;
+      --img-icons: invert(.75) sepia(100%) saturate(75) hue-rotate(-150deg) brightness(0.70); 
+      --svg-icons: var(--accent); 
+      --scroll-h: #2150c88c;
+      --poll-vote: #00479977;
+      --end-call: #35003e;
+      --bg-fg-nonprop: hue-rotate(BGFGhue) blur(chatBoxSurrBlur);
+      --bg-fg-nonprop-deblur: hue-rotate(BGFGhue);
+      --bg-fg-prop: hue-rotate(-110deg) blur(chatBoxSurrBlur);
+      --bg-fg-prop-deblur: hue-rotate(-110deg);
+    }
+    
+    --web-wash: var(--lazy-color-a00);
+
+    --always-white: var(--lazy-color-b01);
+    --always-black: var(--lazy-color-b02);
+
+    --primary-text: var(--lazy-color-c01);
+    --secondary-text: var(--lazy-color-c02);
+
+    --surface-background: var(--lazy-color-d01); /* chat list bg + sidebar bg */
+    --accent: var(--lazy-color-d02); /* unread message dot notif, */
+    --popover-background: var(--lazy-color-d03); /* chat menu button bg */
+    --divider: var(--lazy-color-d04); /* line that appears after scrolling in chat list, disabled toggle bg, deleted message blob border */
+    --hosted-view-selected-state: var(--lazy-color-d05); /* selection bg*/
+    --hover-overlay: var(--lazy-color-d06); /* selection hover bg*/
+    --press-overlay: var(--lazy-color-d07); /* selection press bg */
+    --scroll-thumb: var(--scroll-h); /* chat search scroll bar color*/
+    --switch-active: var(--lazy-color-f02); /* menu option toggle */
+
+    --messenger-card-background: var(--lazy-color-e01); /* chat box + chat info */
+    --comment-background: var(--lazy-color-e02); /* input box bg, embed footer blob bg */
+    --comment-footer-background: var(--lazy-color-e03); /* reply blob bg */
+    --base-lemon: var(--lazy-color-e04); /* search keyword highlight */
+    --wash: var(--lazy-color-e05); /* received message blob */
+    --fds-black-alpha-05: var(--lazy-color-e06); /* file attachment icon bg */
+    --placeholder-text: var(--lazy-color-e07); /* reply passive notif */
+    --disabled-text: var(--lazy-color-e08); /* deleted message text */
+    --mw-blockquote-border-start-color: var(--lazy-color-e09); /* quote block left border */
+    --base-lime: var(--lazy-color-e06); /* call started notif icon bg wtdf*/
+    --background-deemphasized: var(--lazy-color-d05); /* + button bg */
+    --input-background: var(--lazy-color-e12); /* fancy input box color*/
+    --input-border-color: var(--lazy-color-e13); /* fancy input box color*/
+    --input-label-color-highlighted: var(--lazy-color-e14); /* fancy input placeholder focus color*/
+
+    --card-background: var(--lazy-color-f01); /* floating window bg (emoji selector, menus)*/
+    --primary-button-background: var(--lazy-color-f02) !important;  /* confirm button  */
+    --disabled-button-background: var(--lazy-color-f03); /* s.e. */
+    --primary-deemphasized-button-background: var(--lazy-color-f04); /* e.g. send button */
+    --primary-deemphasized-button-text: var(--lazy-color-f05); 
+    --card-background-flat: var(--lazy-color-f01); /* hovered tooltip */
+    --warning: var(--lazy-color-f07) !important; /* delete confirm button */
+
+    --secondary-button-background: var(--lazy-color-g01); /* passive icon background */
+    --secondary-button-background-floating: var(--lazy-color-g02); /* same but it floats (e.g go to bottom of chat button)*/
+    --non-media-pressed-on-dark: var(--lazy-color-g03); /* call icon hover bg */
+    --non-media-pressed: var(--lazy-color-g04); /* call icon pressed bg */
+        
+    --fds-white-alpha-50: var(--lazy-color-c02); /* video seekbar bg buffer */
+    --fds-white-alpha-40: var(--lazy-color-c01); /* video seekbar bg length */
+    
+  }
+  
+  div[role="main"] div[style*="background-image"] {  /* gradient bg */
+    background-image: none !important;
+  } 
+  
+  div[data-scope="messages_table"] span > div > div:not([style*="--wash"]) + div, /* gradient sent message blobs (the hole thingy) */ 
+  div[data-scope="messages_table"] div[style^="background-color:"]:not([style*="--mwp-reply-background-color"]) /* color sent message blobs, recording blob  */ {
+    if isBG == 0 { background-color: var(--blob-bg-wbg) !important; 
+    } else {       background-color: var(--blob-bg) !important;
+    }
+  }
+
+  div[data-scope="messages_table"] div[style*="--mwp-reply-background-color"] { /* reply blob */
+    --mwp-reply-background-color: var(--comment-footer-background) !important;
+  }
+  
+  label, ::placeholder, /* mysterious poll text */
+  div[role="button"] > audio[autoplay] + audio[preload] + svg, /* call preview speakers button */ 
+  div[role="main"] div[style] > div > div[style]:not([role]) /* recording misc */ { 
+    color: var(--primary-text) !important; /* recording timestamp */
+    --always-white: var(--blob-bg); /* recording timestamp blob bg */
+  } 
+  
+  div[role="navigation"] + div > div > div > div > div > div > div > div:nth-child(2) > div > div > div:not([class]) > div > div[style] { /* record blob main bottom */
+    background-color: var(--blob-bg) !important;
+  } div[role="navigation"] + div > div > div > div > div > div > div > div:nth-child(2) > div > div > div:not([class]) > div > div[style] > div:first-child { /* record blob main bottom seek */
+    --always-white: #fff !important;
+  }
+  
+  div[data-scope="messages_table"] div[role="none"] { /* sent message text color override */
+    --always-white: var(--primary-text); 
+    --wash: var(--blob-bg) !important;
+    --secondary-text-on-media: var(--secondary-text) !important; /* sent blockquotes*/
+  }
+  
+  div[role="slider"] > div > div:nth-child(2), /* video seekbar seeked color */
+  div[role="slider"] > div > div[style^="height"] /* video volume color */ { 
+    background-color: var(--accent);
+  } video + div { /* video timestamp text color */
+    --always-white: var(--primary-text) !important;
+  }
+  
+  if isBG == 1 {
+    .__fb-light-mode {
+      --surface-background: #0000; /* chat list bg + sidebar bg */
+      --messenger-card-background: #0000; /* chat box + chat info */
+    } 
+    
+    
+    div[role="main"] { /* the chat backgroud */
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      background-size: cover;
+      background-image: linear-gradient(gradientAngleM, gradientColor1m, gradientColor2m), url(BG1) !important;
+    }
+    div:not([role="banner"]) > div > div[role="navigation"]{ /* the navigation background */
+      if color >= 2 {
+        background-image: linear-gradient(90deg, var(--wash), gradientColor2n), url(BG2) !important;
+      } else {
+        background-image: linear-gradient(90deg, gradientColor1n, gradientColor2n), url(BG2) !important;
+      }
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    div[data-scope="messages_table"]  span > div > div:nth-child(2):not([style]) /* gradient sent message blobs */  { 
+      border-radius: 1.5em; /* no easy fix on the message blob grouping */
+    }
+    
+    div[role="main"] > div > div > div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div:nth-child(1)[class] { /* chat bg */
+      if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
+        backdrop-filter: var(--bg-fg-prop-deblur); /* proprietary */
+      } else {
+        backdrop-filter: var(--bg-fg-nonprop-deblur); /* proprietary */
+      }
+    }
+    div[role="main"] > div > div > div[role="main"] > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/
+    div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div + div:not([class]), /* chat footer bg */
+    div[role="main"] > div > div > div + div /* chat info/settings bg */ { 
+      if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
+        backdrop-filter: var(--bg-fg-prop); /* proprietary */
+      } else {
+        backdrop-filter: var(--bg-fg-nonprop);
+      }
+    }
+  }
+    div[role="main"] > div > div > div[role="main"] > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/
+    div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div + div:not([class]), /* chat footer bg */
+    div[role="main"] > div > div > div + div /* chat info/settings bg */ { 
+      background-color: var(--chat-enclosure-bg); }
+  
+
+    div:not([class]) > div > span + div > div:nth-child(6), /* non sensical svg blocks*/ 
+    div:not([class]) > div > span + div > div:nth-child(7) /* non sensical svg blocks*/  {
+      display:none;
+    }
+  div[role="navigation"] > div > div:nth-child(1) { /* chat list nav | for neighbor style workaround */
+    background-color: #111e;
+  }
+    
+  if noSendEmojiButt == 1 {
+    div:not([class]) > div > span + div > div[style] > div[id] + div:not([id]) { /* message input box right borders*/
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    div:not([class]) > div > span + div + span { /* the poopy button*/
+      display:none;
+    }
+  }
+  
+    
+  div[role="navigation"] + div > div > div > div[role="main"] > div > div > div > div[tabindex] > div[tabindex] > div > div:not([class]) > div > div > div[style]:nth-child(4) > div:nth-child(2) > div:nth-child(1) > input + div, /* add attachment button (pre attachment) */
+  div[role="navigation"] + div > div > div > div[role="main"] > div > div > div > div[tabindex] > div[tabindex] > div > div:not([class]) > div > div > div[style]:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:not([role="button"]) > div:nth-child(1):not([role="textbox"])  { /* file pre attachment */
+    background-color: var(--blob-bg);
+  } 
+  
+  div[role="main"] div {
+    --secondary-button-background: var(--lazy-color-g01) !important; /* vote button, join grp butt */
+  }
+  
+  div[role="dialog"] input[maxlength="140"] { /* custom fart (found on poll item addition/voting)*/
+    background-color: #fff1;
+    color: var(--primary-text);
+    border: var(--lazy-color-f05) 1px solid !important;
+    border-radius: 0.3em;
+    padding: 3px;
+  }
+  
+  
+  svg path:not([fill][stroke]),
+  svg path[fill^="#"], /* most of icons (this was more effective than i thought it would be) (facebook.com)*/
+  svg > g > circle[fill^="#"], 
+  svg > rect[fill^="#"] { 
+    fill: var(--svg-icons);
+  } 
+    div[role="button"] > svg > path[fill]:not([stroke="none"]) { /* header icons (facebook.com) */
+      fill: var(--svg-icons);
+    }  div[role="button"] > div > svg > g > path[stroke],
+      svg > rect[stroke^="#"]{
+      stroke: var(--svg-icons);
+    } div > svg > path[fill="none"], 
+     div[role="button"] > svg > g > path[stroke] { /* header icons (facebook.com) */
+      stroke: var(--svg-icons);
+      fill: revert;
+    } div[role="button"] > div > div:nth-child(1)[style^="background-color"]:not([style*="var(--"]):not([role]) { /* header icons active (facebook.com) */
+      background-color: var(--accent) !important; 
+    }
+  div[role="main"] div[role] svg circle,
+  div[role="main"] div[role] svg path { /* hidden hover message buttons */
+    --placeholder-icon: var(--svg-icons) !important;
+  }
+  div[role="menuitem"] svg > rect{ /* poll icon on chat menu */
+    fill: var(--svg-icons) !important; 
+  }svg[fill="var(--card-background)"] > path { /* whoops (on the popup menu tail) */
+    fill: revert !important;
+  }
+  
+  div[role="progressbar"] img,
+  div[role] i[data-visualcompletion="css-img"] { /* non-svg icons */
+    filter: var(--img-icons);  
+  } div[role="main"] form div[aria-disabled="true"][role="button"] > i[data-visualcompletion="css-img"][style] { /* message search ribbon disabled button workaround */
+    opacity: .3;
+  }  
+  
+  div[data-scope="messages_table"] div[style] ul > li > div > div[style] { /* poll vote bar */
+    background-color: var(--poll-vote) !important;
+  }
+    
+  div[role="main"] form div[role="button"] > div { /* close button on the search bar ribbon */
+    --always-white: var(--base-lemon);  
+  }
+  
+  div[role="dialog"] section > div > div > div > canvas { /* call preview audio visualizer */
+    filter: var(--img-icons);  
+  }
+  div[role="button"] > audio[autoplay] + audio[preload] + svg + div { /* call preview speakers seekbar */ 
+    background-color: var(--lazy-color-c02) !important;
+  } div[role="button"] > audio[autoplay] + audio[preload] + svg + div > div{ /* call preview speakers seekbar seeked */ 
+    background-color: var(--lazy-color-c01) !important;
+  }
+  
+  div[role="dialog"] div[tabindex="0"] /* gif preview */ { 
+    --always-black: #000;
+  } 
+  div[style*="#FF443D"] {
+    --secondary-button-background: var(--end-call) !important;
+  }
+  
+  div[role="button"] > div[role="listitem"] > div > div:nth-child(3) > div > div, /* call sharescreen perm toggle */
+  div[role="region"] > div > div[role="listitem"] > div > div:nth-child(2) > div > div { /* chat info toggle */
+    --disabled-button-background: var(--lazy-color-f03) !important; 
+    --secondary-button-background: #d8d8d814 !important;
+    --toggle-active-background: var(--primary-button-background) !important; 
+    --always-white: var(--lazy-color-f05) ;
+  }
+  
+  div[class="__fb-light-mode"] > div[style^="transform:"] { /* new convo box*/
+    --messenger-card-background: var(--lazy-color-f01);
+  } 
+  
+  /* firefox scrollbar stolen from another messenger style */
+  body div { 
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-h)#fff0;
+  } body div[role="navigation"] + div div { /* against gradient bg*/
+    scrollbar-color: var(--scroll-h) var(--messenger-card-background);
+  }
+  
+  /* chrome scrollbar stolen from another messenger style*/
+  body ::-webkit-scrollbar {
+      width: 14px;
+      height: 14px;
+  } div[role="navigation"] + div ::-webkit-scrollbar-track { /* against gradient bg */
+    background-color: var(--messenger-card-background);
+  } ::-webkit-scrollbar-track:hover {
+      background-color: var(--blob-bg) !important;
+  } 
+
+  div[role="navigation"] ::-webkit-scrollbar-thumb,
+  div[role="navigation"] + div ::-webkit-scrollbar-thumb { 
+      background-color: #fff0;
+  }  
+  div[class="__fb-light-mode"] > div[style^="transform:"]:hover  ::-webkit-scrollbar-thumb, /* new convo box*/
+  div[role="navigation"] + div:hover ::-webkit-scrollbar-thumb,
+  div[role="navigation"]:hover ::-webkit-scrollbar-thumb { 
+      background-color: var(--scroll-h);
+      background-clip: padding-box;
+      border: 3px solid transparent;
+      border-radius: 10px;
+  }
+  
+  ::selection {
+    background-color: /*var(--secondary-text)*/ #0000;
+    color: #fff;
+    text-decoration: underline;
+  }
+  :focus {
+    border: 0;
+  }
+  a[href] { /* link underline */
+    text-decoration-color: var(--lazy-color-c02);
+  }
+  
+} 
+
+/*
+@-moz-document url-prefix("http(|s):\\/\\/(|www.)(facebook|messenger).com/groupcall.*") {
+  div[class^="__fb-dark-mode"] > div > div > div > div > div { /* call end window bg 
+    --always-black: #000 !important;
+  }
+}
+ okay no one cares */
+@-moz-document domain("messenger.com") { 
+  
+  div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div:nth-child(4):not(div[id]),
+  div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div:nth-child(5) { /* ad remove (messenger.com)*/
+    display: none;
+  }
+
+  div[role="main"] > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ { 
+      background-color: var(--chat-enclosure-bg);}
+  if (isBG == 1) {
+    div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div:nth-child(1)[class] { /* chat bg  (messenger.com) */
+      if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
+        backdrop-filter: var(--bg-fg-prop-deblur); /* proprietary */
+      } else {
+        backdrop-filter: var(--bg-fg-nonprop-deblur); /* proprietary */
+      }
+    }
+    div[role="main"] > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ { 
+      if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
+        backdrop-filter: var(--bg-fg-prop); /* proprietary */
+      } else {
+        backdrop-filter: var(--bg-fg-nonprop);
+      }
+    }
+    
+  }
+
+  svg path /* most of icons (this was more effective than i thought it would be) (messenger.com)*/ {
+    fill: var(--svg-icons);
+  }
+}
