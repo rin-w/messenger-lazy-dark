@@ -1,12 +1,13 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        1
+@version        8.2
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
 @preprocessor stylus
 @var checkbox noSendEmojiButt "Hide send/emoji button" 0
+@var checkbox noSidebarbloat "Remove messenger.com sidebar bloat" 0
 @var checkbox noSidesidebar "Hide facebook.com side sidebar" 0
 @var select color "Color" { 
   "Pink": "2",
@@ -14,7 +15,7 @@
   "Black": "1",  
   "Dark": "0" 
 }
-@var checkbox isBG "Custom background" 1
+@var checkbox isBG "Custom background" 0
 @var text nothing "> Images can only come from photos uploaded in facebook. Example: " "\"<fbcdn URL>\""
 @var text BG1 "- Image URL Main " "\"https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif\""
 @var text BG2 "- Image URL Navigation " "\"https://media0.giphy.com/media/rRKcpDgvYNpEk/giphy.gif\""
@@ -199,6 +200,12 @@
     border-radius: 0.5em;
     content: "Note: Style fixing on progress!";
   } */
+  
+  if noSidebarbloat == 1 {
+    div[role="navigation"] > div > div > div > div > div > div[data-pagelet]:not([id]) > div > div > div:nth-child(2){
+      display: none;
+    }
+  }
   
   if isBG == 1 { /* first pass (yes i know this magical spaghetti)*/
    .__fb-light-mode, .__fb-dark-mode {
