@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        8.2
+@version        8.3
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -464,6 +464,10 @@
     if isBG == 0 { background-color: var(--blob-bg-wbg) !important; 
     } else {       background-color: var(--blob-bg) !important;
     }
+  }
+  
+  div[data-scope="messages_table"] > div > div > div > span[style] > div[role="button"][tabindex][style] { /* show individual update. in chat*/
+    color: var(--lazy-color-c01) !important;
   }
 
   div[data-scope="messages_table"] div[style*="--mwp-reply-background-color"] { /* reply blob */
