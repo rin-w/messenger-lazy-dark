@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        8.3
+@version        8.4
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -16,9 +16,9 @@
   "Dark": "0" 
 }
 @var checkbox isBG "Custom background" 0
-@var text nothing "> Images can only come from photos uploaded in facebook. Example: " "\"<fbcdn URL>\""
-@var text BG1 "- Image URL Main " "\"https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif\""
-@var text BG2 "- Image URL Navigation " "\"https://media0.giphy.com/media/rRKcpDgvYNpEk/giphy.gif\""
+@var text nothing "> Images can only come from photos uploaded in facebook. Example: " ""<fbcdn URL>""
+@var text BG1 "- Image URL Main " ""https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif""
+@var text BG2 "- Image URL Navigation " ""https://media0.giphy.com/media/rRKcpDgvYNpEk/giphy.gif""
 @var text BGFGhue "- Background Hue" 0deg
 @var text gradientAngleM "- Gradient Angle Main" -108deg
 @var text chatBoxSurrBlur "- Chat Box Enclosure Blur" 0.4em
@@ -221,7 +221,7 @@
     }
   }
   
-  .__fb-dark-mode, .__fb-light-mode { /* theme coloring */
+  .__fb-dark-mode, .__fb-light-mode, * { /* theme coloring */
   
     color-scheme: dark; /* chrome specific */
   
@@ -460,7 +460,8 @@
   } 
   
   div[data-scope="messages_table"] span > div > div:not([style*="--wash"]) + div, /* gradient sent message blobs (the hole thingy) */ 
-  div[data-scope="messages_table"] div[style^="background-color:"]:not([style*="--mwp-reply-background-color"]) /* color sent message blobs, recording blob  */ {
+  div[data-scope="messages_table"] div[style^="curso"]:not([style*="--mwp-reply-background-color"]) /* recording blob */ ,
+  div[data-scope="messages_table"] div[style^="background-color:"]:not([style*="--mwp-reply-background-color"]) /* color sent message blobs */ {
     if isBG == 0 { background-color: var(--blob-bg-wbg) !important; 
     } else {       background-color: var(--blob-bg) !important;
     }
@@ -476,7 +477,7 @@
   
   label, ::placeholder, /* mysterious poll text */
   div[role="button"] > audio[autoplay] + audio[preload] + svg, /* call preview speakers button */ 
-  div[role="main"] div[style] > div > div[style]:not([role]) /* recording misc */ { 
+  div[data-scope="messages_table"] div[style^="curso"]:not([style*="--mwp-reply-background-color"]) * /* recording misc */ { 
     color: var(--primary-text) !important; /* recording timestamp */
     --always-white: var(--blob-bg); /* recording timestamp blob bg */
   } 
