@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        8.4
+@version        8.5
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -30,6 +30,11 @@
 ==/UserStyle== */
 
 @-moz-document regexp("http(|s):\\/\\/(|www.)(facebook.com\\/(mess|groupcall)|messenger.com).*") {
+  
+  div[role="banner"] + div[class] + div[class] + div[class] > div > div > div:nth-child(3) > div > div > div { /* just some facebook front-end engineering */
+    height: 100vh;
+  }
+  
   .__fb-dark-mode, .__fb-light-mode { /* mark zucc */ /* there are probably stuff unused. too lazy to find them one by 1*/
     --fds-blue-05: black;
     --fds-blue-30: black;
@@ -544,7 +549,9 @@
       }
     }
   }
-    div[role="main"] > div > div > div[role="main"] > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/
+    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/ 
+    div[role="main"] > div > div > div[role="main"] > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (facebook.com)*/ 
+    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (facebook.com)*/ 
     div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div + div:not([class]), /* chat footer bg */
     div[role="main"] > div > div > div + div /* chat info/settings bg */ { 
       background-color: var(--chat-enclosure-bg); }
@@ -656,7 +663,11 @@
   
   div[class="__fb-light-mode"] > div[style^="transform:"] { /* new convo box*/
     --messenger-card-background: var(--lazy-color-f01);
-  } 
+  }
+  
+  div[class="__fb-light-mode"] > div[style^="transform:"] > span { /* overlay tooltip (facebook.com) */
+    background-color: var(--lazy-color-f01);
+  }
   
   /* firefox scrollbar stolen from another messenger style */
   body div { 
@@ -712,13 +723,21 @@
  okay no one cares */
 @-moz-document domain("messenger.com") { 
   
+  body > div[id] > div > div > div > div + div > div > div > div > div[class] { /* just some facebook front-end engineering */
+    height: 100vh;
+  }
+  
   div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div:nth-child(4):not(div[id]),
   div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div:nth-child(5) { /* ad remove (messenger.com)*/
     display: none;
   }
 
-  div[role="main"] > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ { 
-      background-color: var(--chat-enclosure-bg);}
+  div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ 
+  div[role="main"] > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
+  div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (messenger.com)*/ { 
+      background-color: var(--chat-enclosure-bg);
+  }
+      
   if (isBG == 1) {
     div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div:nth-child(1)[class] { /* chat bg  (messenger.com) */
       if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
