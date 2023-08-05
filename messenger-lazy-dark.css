@@ -550,7 +550,7 @@
     }
   }
     div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/ 
-    div[role="main"] > div > div > div[role="main"] > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (facebook.com)*/ 
+    div[role="main"] > div > div > div[role="main"] > div > div > div > div  > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (facebook.com)*/ 
     div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (facebook.com)*/ 
     div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div + div:not([class]), /* chat footer bg */
     div[role="main"] > div > div > div + div /* chat info/settings bg */ { 
@@ -733,7 +733,7 @@
   }
 
   div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ 
-  div[role="main"] > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
+  div[role="main"] > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
   div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (messenger.com)*/ { 
       background-color: var(--chat-enclosure-bg);
   }
