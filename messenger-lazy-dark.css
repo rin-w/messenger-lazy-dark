@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        8.5
+@version        8.6
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -32,7 +32,7 @@
 @-moz-document regexp("http(|s):\\/\\/(|www.)(facebook.com\\/(mess|groupcall)|messenger.com).*") {
   
   div[role="banner"] + div[class] + div[class] + div[class] > div > div > div:nth-child(3) > div > div > div { /* just some facebook front-end engineering */
-    height: 100vh;
+    height: calc(100vh - 56px);
   }
   
   .__fb-dark-mode, .__fb-light-mode { /* mark zucc */ /* there are probably stuff unused. too lazy to find them one by 1*/
