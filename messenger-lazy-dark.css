@@ -1,14 +1,13 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        8.7
+@version        8.8
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
 @preprocessor stylus
 @var checkbox noSendEmojiButt "Hide send/emoji button" 0
 @var checkbox noSidebarbloat "Remove messenger.com sidebar bloat" 0
-@var checkbox noSidesidebar "Hide facebook.com side sidebar" 0
 @var select color "Color" { 
   "Pink": "2",
   "Blue": "3",
@@ -30,10 +29,6 @@
 ==/UserStyle== */
 
 @-moz-document regexp("http(|s):\\/\\/(|www.)(facebook.com\\/(mess|groupcall)|messenger.com).*") {
-  
-  div[role="banner"] + div[class] + div[class] + div[class] > div > div > div:nth-child(3) > div > div > div { /* just some facebook front-end engineering */
-    height: calc(100vh - 56px);
-  }
   
   .__fb-dark-mode, .__fb-light-mode { /* mark zucc */ /* there are probably stuff unused. too lazy to find them one by 1*/
     --fds-blue-05: black;
@@ -172,10 +167,6 @@
     --toggle-active-text: #FFFFFF;
     --toggle-button-active-background: #E6F2FF;
     --card-box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1);
-
-     if (noSidesidebar == 1) {
-      --global-panel-width: 0; 
-     }
 }
   
   /* _/_/_/_/_/_/_/ lazy patches _/_/_/_/_/_/ */
@@ -187,9 +178,7 @@
     display: none;
   }
   
-  div[role="banner"] + div + div,
-  div[role="navigation"] > div > div > div > div > div:nth-child(4):not(div[data-pagelet]):not(div[id]),
-  div[role="navigation"] > div > div > div > div > div:nth-child(5):not(div[data-pagelet]):not(div[id]) { /* ad remove (facebook.com) */
+  div[role="navigation"] > div > div > div > div > div:last-child:not(:first-child):not(div[data-pagelet]):not(div[id]) { /* ad remove (facebook.com) */
     display: none;
   } /* for sudden major breakage
   #facebook:after {
@@ -207,7 +196,7 @@
   } */
   
   a[aria-label="Facebook"] svg defs + path { /* facebook logo */
-    display: none;
+    fill: var(--lazy-color-g01) !important;
   }
   
   if noSidebarbloat == 1 {
@@ -725,12 +714,7 @@
  okay no one cares */
 @-moz-document domain("messenger.com") { 
   
-  body > div[id] > div > div > div > div + div > div > div > div > div[class] { /* just some facebook front-end engineering */
-    height: 100vh;
-  }
-  
-  div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div:nth-child(4):not(div[id]),
-  div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div:nth-child(5) { /* ad remove (messenger.com)*/
+  div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div:last-child { /* ad remove (messenger.com)*/
     display: none;
   }
 
