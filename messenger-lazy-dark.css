@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        8.6
+@version        8.7
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -205,6 +205,10 @@
     border-radius: 0.5em;
     content: "Note: Style fixing on progress!";
   } */
+  
+  a[aria-label="Facebook"] svg defs + path { /* facebook logo */
+    display: none;
+  }
   
   if noSidebarbloat == 1 {
     div[role="navigation"] > div > div > div > div > div > div[data-pagelet]:not([id]) > div > div > div:nth-child(2){
@@ -539,9 +543,9 @@
         backdrop-filter: var(--bg-fg-nonprop-deblur); /* proprietary */
       }
     }
-    div[role="main"] > div > div > div[role="main"] > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/
-    div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div + div:not([class]), /* chat footer bg */
-    div[role="main"] > div > div > div + div /* chat info/settings bg */ { 
+    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/ 
+    div[role="main"] > div > div > div[role="main"] > div > div > div > div  > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (facebook.com)*/ 
+    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (facebook.com)*/ { 
       if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
         backdrop-filter: var(--bg-fg-prop); /* proprietary */
       } else {
@@ -551,9 +555,7 @@
   }
     div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/ 
     div[role="main"] > div > div > div[role="main"] > div > div > div > div  > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (facebook.com)*/ 
-    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (facebook.com)*/ 
-    div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div + div:not([class]), /* chat footer bg */
-    div[role="main"] > div > div > div + div /* chat info/settings bg */ { 
+    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (facebook.com)*/ { 
       background-color: var(--chat-enclosure-bg); }
   
 
@@ -739,14 +741,10 @@
   }
       
   if (isBG == 1) {
-    div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div:nth-child(1)[class] { /* chat bg  (messenger.com) */
-      if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
-        backdrop-filter: var(--bg-fg-prop-deblur); /* proprietary */
-      } else {
-        backdrop-filter: var(--bg-fg-nonprop-deblur); /* proprietary */
-      }
-    }
-    div[role="main"] > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ { 
+  
+    div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ 
+    div[role="main"] > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
+    div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (messenger.com)*/ /* chat header bg  (messenger.com)*/ { 
       if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
         backdrop-filter: var(--bg-fg-prop); /* proprietary */
       } else {
