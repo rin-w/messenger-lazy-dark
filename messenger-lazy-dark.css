@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        8.8
+@version        8.9
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -714,7 +714,7 @@
  okay no one cares */
 @-moz-document domain("messenger.com") { 
   
-  div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div:last-child { /* ad remove (messenger.com)*/
+  div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div[class]:not([id]):not([role]):last-child { /* ad remove (messenger.com)*/
     display: none;
   }
 
