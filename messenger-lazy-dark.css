@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        8.9
+@version        9
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -16,158 +16,23 @@
 }
 @var checkbox isBG "Custom background" 0
 @var text nothing "> Images can only come from photos uploaded in facebook. Example: " ""<fbcdn URL>""
-@var text BG1 "- Image URL Main " ""https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif""
-@var text BG2 "- Image URL Navigation " ""https://media0.giphy.com/media/rRKcpDgvYNpEk/giphy.gif""
-@var text BGFGhue "- Background Hue" 0deg
+@var text BG1 "- Image URL Main " ""https://media.tenor.com/nr76QwvVCQUAAAAC/dark-flower.gif""
+@var text BG2 "- Image URL Navigation " ""https://media.tenor.com/dGd8YKkiFCgAAAAC/dark-flower.gif""
 @var text gradientAngleM "- Gradient Angle Main" -108deg
 @var text chatBoxSurrBlur "- Chat Box Enclosure Blur" 0.4em
 @var color chatBoxSurrBG "- Chat Box Enclosure" #0002
-@var color gradientColor1m "- Gradient Main L" #0007
-@var color gradientColor2m "- Gradient Main R" #000E
-@var color gradientColor1n "- Gradient Navigation L *" #0000
+@var color gradientColor1m "- Gradient Main L" #0009
+@var color gradientColor2m "- Gradient Main R" #000B
+@var color gradientColor1n "- Gradient Navigation L *" #000C
 @var color gradientColor2n "- Gradient Navigation R" #000E
 ==/UserStyle== */
 
 @-moz-document regexp("http(|s):\\/\\/(|www.)(facebook.com\\/(mess|groupcall)|messenger.com).*") {
   
-  .__fb-dark-mode, .__fb-light-mode { /* mark zucc */ /* there are probably stuff unused. too lazy to find them one by 1*/
-    --fds-blue-05: black;
-    --fds-blue-30: black;
-    --fds-blue-40: black;
-    --fds-blue-60: black;
-    --fds-blue-70: black;
-    --fds-blue-80: black;
-    --fds-button-text: black;
-    --fds-comment-background: black;
-    --fds-dark-mode-gray-35: black;
-    --fds-dark-mode-gray-50: black;
-    --fds-dark-mode-gray-70: black;
-    --fds-dark-mode-gray-80: black;
-    --fds-dark-mode-gray-90: black;
-    --fds-dark-mode-gray-100: black;
-    --fds-gray-00: black;
-    --fds-gray-05: black;
-    --fds-gray-10: black;
-    --fds-gray-20: black;
-    --fds-gray-25: black;
-    --fds-gray-30: black;
-    --fds-gray-45: black;
-    --fds-gray-70: black;
-    --fds-gray-80: black;
-    --fds-gray-90: black;
-    --fds-gray-100: black;
-    --fds-green-55: black;
-    --fds-highlight: black;
-    --fds-highlight-cell-background: black;
-    --fds-red-55: black;
-    --fds-spectrum-aluminum-tint-70: black;
-    --fds-spectrum-blue-gray-tint-70: black;
-    --fds-spectrum-cherry: black;
-    --fds-spectrum-cherry-tint-70: black;
-    --fds-spectrum-grape-tint-70: black;
-    --fds-spectrum-grape-tint-90: black;
-    --fds-spectrum-lemon-dark-1: black;
-    --fds-spectrum-lemon-tint-70: black;
-    --fds-spectrum-lime: black;
-    --fds-spectrum-lime-tint-70: black;
-    --fds-spectrum-orange-tint-70: black;
-    --fds-spectrum-orange-tint-90: black;
-    --fds-spectrum-seafoam-tint-70: black;
-    --fds-spectrum-slate-dark-2: black;
-    --fds-spectrum-slate-tint-70: black;
-    --fds-spectrum-teal: black;
-    --fds-spectrum-teal-dark-1: black;
-    --fds-spectrum-teal-dark-2: black;
-    --fds-spectrum-teal-tint-70: black;
-    --fds-spectrum-teal-tint-90: black;
-    --fds-spectrum-tomato: black;
-    --fds-spectrum-tomato-tint-30: black;
-    --fds-spectrum-tomato-tint-90: black;
-    --fds-white: black;
-    --fds-white-alpha-05: rgba(255, 255, 255, 0.05);
-    --fds-white-alpha-10: rgba(255, 255, 255, 0.1);
-    --fds-white-alpha-20: rgba(255, 255, 255, 0.2);
-    --fds-white-alpha-30: rgba(255, 255, 255, 0.3);
-    --fds-white-alpha-60: rgba(255, 255, 255, 0.6);
-    --fds-white-alpha-80: rgba(255, 255, 255, 0.8);
-    --fds-yellow-20: black;
-    --always-dark-gradient: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
-    --always-dark-overlay: rgba(0, 0, 0, 0.4);
-    --always-light-overlay: rgba(255, 255, 255, 0.4);
-    --always-gray-40: #65676B;
-    --always-gray-75: #BCC0C4;
-    --always-gray-95: #F0F2F5;
-    --attachment-footer-background: rgba(255,255,255,0.1);
-    --border-focused: #8A8D91;
-    --disabled-button-text: rgba(255, 255, 255, 0.3);
-    --disabled-icon: rgba(255, 255, 255, 0.3);
-    --event-date: #F3425F;
-    --fb-wordmark: #FFFFFF;
-    --glimmer-spinner-icon: white;
-    --hero-banner-background: #E85D07;
-    --highlight-bg: rgba(24, 119, 242, .31);
-    --list-cell-chevron: #B0B3B8;
-    --media-hover: rgba(68, 73, 80, 0.15);
-    --media-inner-border: rgba(255, 255, 255, 0.05);
-    --media-outer-border: #33363A;
-    --media-pressed: rgba(68, 73, 80, 0.35);
-    --messenger-reply-background: #18191a91; 
+  .__fb-dark-mode, .__fb-light-mode {
     --overlay-alpha-80: rgba(11, 11, 11, 0.8);
-    --overlay-on-media: rgba(0, 0, 0, 0.6);
-    --nav-bar-background: #242526;
-    --nav-bar-background-gradient: linear-gradient(to top, #242526, rgba(36,37,38,.9), rgba(36,37,38,.7), rgba(36,37,38,.4), rgba(36,37,38,0));
-    --nav-bar-background-gradient-wash: linear-gradient(to top, #18191A, rgba(24,25,26,.9), rgba(24,25,26,.7), rgba(24,25,26,.4), rgba(24,25,26,0));
-    --negative: hsl(350, 87%, 55%);
-    --negative-background: hsl(350, 87%, 55%, 20%);
-    --new-notification-background: #E7F3FF;
-    --notification-badge: #e41e3f;
-    --placeholder-icon: #8A8D91;
-    --placeholder-image: rgb(164, 167, 171);
-    --placeholder-text-on-media: rgba(255, 255, 255, 0.5);
-    --positive: #31A24C;
-    --positive-background: #1F3520;
-    --primary-button-icon: #FFFFFF;
-    --primary-button-pressed: #77A7FF;
-    --primary-button-text: #FFFFFF;
-    --primary-deemphasized-button-pressed: rgba(24, 119, 242, 0.2);
-    --primary-deemphasized-button-pressed-overlay: rgba(25, 110, 255, 0.15);
-    --primary-text-on-media: white;
-    --primary-web-focus-indicator: #D24294;
-    --progress-ring-neutral-background: rgba(255, 255, 255, 0.2);
-    --progress-ring-neutral-foreground: #ffffff;
-    --progress-ring-on-media-background: rgba(255, 255, 255, 0.2);
-    --progress-ring-on-media-foreground: #FFFFFF;
-    --progress-ring-blue-foreground: hsl(214, 100%, 59%);
-    --progress-ring-blue-background: rgba(45, 136, 255, 0.2);
-    --progress-ring-disabled-background: rgba(122,125,130, 0.2);
-    --progress-ring-disabled-foreground: #7A7D82;
-    --rating-star-active: #FF9831;
-    --scroll-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 -1px rgba(255, 255, 255, 0.05) inset;
-    --secondary-button-background-on-dark: rgba(255, 255, 255, 0.4);
-    --secondary-button-pressed: rgba(0, 0, 0, 0.05);
-    --secondary-button-stroke: transparent;
     --secondary-button-text: #E4E6EB;
-    --secondary-icon: #B0B3B8;
-    --secondary-text-on-media: rgba(255, 255, 255, 0.9);
-    --section-header-text: #BCC0C4;
-    --shadow-1: rgba(0, 0, 0, 0.1);
-    --shadow-2: rgba(0, 0, 0, 0.2);
-    --shadow-5: rgba(0, 0, 0, 0.5);
-    --shadow-8: rgba(0, 0, 0, 0.8);
-    --shadow-inset: rgba(255, 255, 255, 0.05);
-    --shadow-elevated: 0px 5px 12px rgba(28, 43, 51, 0.6);
-    --shadow-persistent: 0px 0px 12px rgba(28, 43, 51, 0.6);
-    --shadow-primary: 0px 0px 12px rgba(28, 43, 51, 0.1);
-    --text-highlight: rgba(24, 119, 242, 0.45);
-    --text-input-background: #242526;
-    --toast-background: #242526;
-    --toast-text: #FFFFFF;
-    --toast-text-link: #4599FF;
-    --toggle-active-icon: #FFFFFF;
-    --toggle-active-text: #FFFFFF;
-    --toggle-button-active-background: #E6F2FF;
-    --card-box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1);
-}
+  }
   
   /* _/_/_/_/_/_/_/ lazy patches _/_/_/_/_/_/ */
   
@@ -196,7 +61,7 @@
   } */
   
   a[aria-label="Facebook"] svg defs + path { /* facebook logo */
-    fill: var(--lazy-color-g01) !important;
+    fill: var(---g01) !important;
   }
   
   if noSidebarbloat == 1 {
@@ -223,51 +88,48 @@
   
     color-scheme: dark; /* chrome specific */
   
-    --lazy-color-a00: #111;  /* --web-wash */
+    ---a00: #111;  /* --web-wash */
     
-    --lazy-color-b01: #fffc; /* --always-white */
-    --lazy-color-b02: #fffc; /* --always-black */
+    ---b01: #fffc; /* --always-white */
+    ---b02: #fffc; /* --always-black */
     
-    --lazy-color-c01: #fffa; /* --primary-text */
-    --lazy-color-c02: #828282 ; /* --secondary-text */
+    ---c01: #fffa; /* --primary-text */
+    ---c02: #828282 ; /* --secondary-text */
     
-    --lazy-color-d01: #ffffff03; /* --surface-background */
-    --lazy-color-d02: #aaa; /* --accent */
-    --lazy-color-d03: #252527; /* --popover-background */
-    --lazy-color-d04: #0b0b0b21; /* --divider */
-    --lazy-color-d05: #d5d5d50f; /* --hosted-view-selected-state */
-    --lazy-color-d06: #f9f9f917; /* --hover-overlay */
-    --lazy-color-d07: #f9f9f936; /* --press-overlay */
-    --lazy-color-d08: #fff; /* --scroll-thumb */
+    ---d01: #ffffff03; /* --surface-background */
+    ---d02: #aaa; /* --accent */
+    ---d03: #252527; /* --popover-background */
+    ---d04: #0b0b0b21; /* --divider */
+    ---d05: #d5d5d50f; /* --hosted-view-selected-state */
+    ---d06: #f9f9f917; /* --hover-overlay */
+    ---d07: #f9f9f936; /* --press-overlay */
+    ---d08: #fff; /* --scroll-thumb */
     
-    --lazy-color-e01: #242527; /* --messenger-card-background */
-    --lazy-color-e02: #ffffff0a; /* --comment-background */
-    --lazy-color-e03: #ffffff08; /* --comment-footer-background */
-    --lazy-color-e04: #f7b9287d; /* --base-lemon */
-    --lazy-color-e05: #363638; /* --wash */
-    --lazy-color-e06: #ffffff1f; /* --fds-black-alpha-05 */
-    --lazy-color-e07: #8A8D91; /* --placeholder-text */
-    --lazy-color-e08: #fff4; /* --disabled-text */
-    --lazy-color-e09: #fff3; /* --mw-blockquote-border-start-color */
-    --lazy-color-e09: #fff; /* --base-lime */
+    ---e01: #242527; /* --messenger-card-background */
+    ---e02: #ffffff0a; /* --comment-background */
+    ---e03: #ffffff08; /* --comment-footer-background */
+    ---e04: #f7b9287d; /* --base-lemon */
+    ---e05: #363638; /* --wash */
+    ---e06: #ffffff1f; /* --fds-black-alpha-05 */
+    ---e07: #8A8D91; /* --placeholder-text */
+    ---e08: #fff4; /* --disabled-text */
+    ---e09: #fff3; /* --mw-blockquote-border-start-color */
+    ---e09: #fff; /* --base-lime */
     
-    --lazy-color-f01: #212222eb; /* --card-background */
-    --lazy-color-f02: #424242; /* --primary-button-background */
-    --lazy-color-f03: #3e3e3e; /* --disabled-button-background */
-    --lazy-color-f04: #fff1; /* --primary-deemphasized-button-background */
-    --lazy-color-f05: #fffa; /* --primary-deemphasized-button-text */
-    --lazy-color-f06: #fffa; /* --card-background-flat */  
-    --lazy-color-f07: #e6000096; /* --warning */
+    ---f01: #212222eb; /* --card-background */
+    ---f02: #424242; /* --primary-button-background */
+    ---f03: #3e3e3e; /* --disabled-button-background */
+    ---f04: #fff1; /* --primary-deemphasized-button-background */
+    ---f05: #fffa; /* --primary-deemphasized-button-text */
+    ---f06: #fffa; /* --card-background-flat */  
+    ---f07: #e6000096; /* --warning */
     
-    --lazy-color-g01: #fff1; /* --secondary-button-background */
-    --lazy-color-g02: #282829; /* --secondary-button-background-floating */
-    --lazy-color-g03: #8686864a; /* --non-media-pressed-on-dark */
-    --lazy-color-g04: #1a1a1a85; /* --non-media-pressed */
+    ---g01: #fff1; /* --secondary-button-background */
+    ---g02: #282829; /* --secondary-button-background-floating */
+    ---g03: #8686864a; /* --non-media-pressed-on-dark */
+    ---g04: #1a1a1a85; /* --non-media-pressed */
     
-    --bg-fg-nonprop: hue-rotate(BGFGhue) blur(chatBoxSurrBlur);
-    --bg-fg-nonprop-deblur: hue-rotate(BGFGhue);
-    --bg-fg-prop: hue-rotate(0) saturate(0) blur(chatBoxSurrBlur);
-    --bg-fg-prop-deblur: hue-rotate(0) saturate(0);
+    --bg-fg-nonprop: blur(chatBoxSurrBlur);
     --chat-enclosure-bg: chatBoxSurrBG;
     --blob-bg: #fff1;
     --blob-bg-wbg: #333;
@@ -278,18 +140,18 @@
     --end-call: #e600006e;
     
     if color == 1 {
-      --lazy-color-c01: #fff9; 
-      --lazy-color-c02: #757575;  
+      ---c01: #fff9; 
+      ---c02: #757575;  
       
-      --lazy-color-d01: #000; 
+      ---d01: #000; 
       
-      --lazy-color-e01: #000; 
+      ---e01: #000; 
       if isBG == 1 {
-        --lazy-color-e03: #ffffff08; 
+        ---e03: #ffffff08; 
       } else {
-        --lazy-color-e03: #ffffff15; 
+        ---e03: #ffffff15; 
       }
-      --lazy-color-e05: #202020; 
+      ---e05: #202020; 
       
       --blob-bg: #ffffff0a;
       --blob-bg-wbg: #202020;
@@ -298,43 +160,43 @@
       --scroll-h: #fff2;
       
     } if color == 2 {
-      --lazy-color-c01: #f1b8dab3;
-      --lazy-color-c02: #f97cc46e;
+      ---c01: #f1b8dab3;
+      ---c02: #f97cc46e;
 
-      --lazy-color-d01: #5a2b4212;
-      --lazy-color-d02: #a43474;
-      --lazy-color-d03: #252527;
-      --lazy-color-d04: #4400286e;
-      --lazy-color-d05: #1c0013a8;
-      --lazy-color-d06: #ff72cb17;
-      --lazy-color-d07: #ff9aec36;
-      --lazy-color-d08: #fff;
+      ---d01: #5a2b4212;
+      ---d02: #a43474;
+      ---d03: #252527;
+      ---d04: #4400286e;
+      ---d05: #1c0013a8;
+      ---d06: #ff72cb17;
+      ---d07: #ff9aec36;
+      ---d08: #fff;
 
-      --lazy-color-e01: #2b1c23;
-      --lazy-color-e02: #ff00bc0a;
-      --lazy-color-e03: #ff007c0d;
-      --lazy-color-e04: #f7284442;
-      --lazy-color-e05: #ff009c0a;
-      --lazy-color-e06: #00000045;
-      --lazy-color-e07: #a2558f;
-      --lazy-color-e08: #6d3d50;
-      --lazy-color-e09: #ad436d80;
-      --lazy-color-e12: #a0007a2b;
-      --lazy-color-e13: #77415f;
-      --lazy-color-e14: #d33c99;
+      ---e01: #2b1c23;
+      ---e02: #ff00bc0a;
+      ---e03: #ff007c0d;
+      ---e04: #f7284442;
+      ---e05: #ff009c0a;
+      ---e06: #00000045;
+      ---e07: #a2558f;
+      ---e08: #6d3d50;
+      ---e09: #ad436d80;
+      ---e12: #a0007a2b;
+      ---e13: #77415f;
+      ---e14: #d33c99;
       
-      --lazy-color-f01: #200716eb;
-      --lazy-color-f02: #55002d;
-      --lazy-color-f03: #2f1a26;
-      --lazy-color-f04: #ff007c11;
-      --lazy-color-f05: #ff85b6aa;
-      --lazy-color-f06: #fff;
-      --lazy-color-f07: #ff5900a1;
+      ---f01: #200716eb;
+      ---f02: #55002d;
+      ---f03: #2f1a26;
+      ---f04: #ff007c11;
+      ---f05: #ff85b6aa;
+      ---f06: #fff;
+      ---f07: #ff5900a1;
 
-      --lazy-color-g01: #150009d1;
-      --lazy-color-g02: #380028;
-      --lazy-color-g03: #ff3ec83b;
-      --lazy-color-g04: #3800285c;
+      ---g01: #150009d1;
+      ---g02: #380028;
+      ---g03: #ff3ec83b;
+      ---g04: #3800285c;
       
       --blob-bg: #e050ba21;
       --blob-bg-wbg: #3c1a2f;
@@ -343,51 +205,48 @@
       --scroll-h: #c800914f;
       --poll-vote: #99003477;
       --end-call: #3e000c;
-      --bg-fg-nonprop: hue-rotate(BGFGhue) blur(chatBoxSurrBlur);
-      --bg-fg-nonprop-deblur: hue-rotate(BGFGhue);
-      --bg-fg-prop: hue-rotate(0) blur(chatBoxSurrBlur);
-      --bg-fg-prop-deblur: hue-rotate(0);
+      --bg-fg-nonprop: blur(chatBoxSurrBlur);
       
     } if color == 3 {
-      --lazy-color-c01: #b8c6f1b3;
-      --lazy-color-c02: #7cbbf96e;
+      ---c01: #b8c6f1b3;
+      ---c02: #7cbbf96e;
 
-      --lazy-color-d01: #2b345a12;
-      --lazy-color-d02: #3452a4;
-      --lazy-color-d03: #252627;
-      --lazy-color-d04: #0016446e;
-      --lazy-color-d05: #2b81e40f;
-      --lazy-color-d06: #72b9ff17;
-      --lazy-color-d07: #9ad7ff36;
-      --lazy-color-d08: #fff;
+      ---d01: #2b345a12;
+      ---d02: #3452a4;
+      ---d03: #252627;
+      ---d04: #0016446e;
+      ---d05: #2b81e40f;
+      ---d06: #72b9ff17;
+      ---d07: #9ad7ff36;
+      ---d08: #fff;
 
-      --lazy-color-e01: #1c1d2b;
-      --lazy-color-e02: #1043b32b;
-      --lazy-color-e03: #1953ff1a;
-      --lazy-color-e04: #287bf742;
-      --lazy-color-e05: #0066ff0a;
-      --lazy-color-e06: #00000045;
-      --lazy-color-e07: #3e5c91;
-      --lazy-color-e08: #3d516d;
-      --lazy-color-e09: #435fad80;
-      --lazy-color-e10: #fff;
-      --lazy-color-e11: #fff;
-      --lazy-color-e12: #001c5e73;
-      --lazy-color-e13: #51679e;
-      --lazy-color-e14: #899ac6;
+      ---e01: #1c1d2b;
+      ---e02: #1043b32b;
+      ---e03: #1953ff1a;
+      ---e04: #287bf742;
+      ---e05: #0066ff0a;
+      ---e06: #00000045;
+      ---e07: #3e5c91;
+      ---e08: #3d516d;
+      ---e09: #435fad80;
+      ---e10: #fff;
+      ---e11: #fff;
+      ---e12: #001c5e73;
+      ---e13: #51679e;
+      ---e14: #899ac6;
       
-      --lazy-color-f01: #071120eb;
-      --lazy-color-f02: #001f55;
-      --lazy-color-f03: #1a202f;
-      --lazy-color-f04: #07f1;
-      --lazy-color-f05: #85beffaa;
-      --lazy-color-f06: #fff;
-      --lazy-color-f07: #00ffcca1;
+      ---f01: #071120eb;
+      ---f02: #001f55;
+      ---f03: #1a202f;
+      ---f04: #07f1;
+      ---f05: #85beffaa;
+      ---f06: #fff;
+      ---f07: #00ffcca1;
 
-      --lazy-color-g01: #000915d1;
-      --lazy-color-g02: #001738;
-      --lazy-color-g03: #3e8bff3b;
-      --lazy-color-g04: #0019385c;
+      ---g01: #000915d1;
+      ---g02: #001738;
+      ---g03: #3e8bff3b;
+      ---g04: #0019385c;
       
       --blob-bg: #507ee021;
       --blob-bg-wbg: #1e2547;
@@ -396,60 +255,57 @@
       --scroll-h: #2150c88c;
       --poll-vote: #00479977;
       --end-call: #35003e;
-      --bg-fg-nonprop: hue-rotate(BGFGhue) blur(chatBoxSurrBlur);
-      --bg-fg-nonprop-deblur: hue-rotate(BGFGhue);
-      --bg-fg-prop: hue-rotate(-110deg) blur(chatBoxSurrBlur);
-      --bg-fg-prop-deblur: hue-rotate(-110deg);
+      --bg-fg-nonprop: blur(chatBoxSurrBlur);
     }
     
-    --web-wash: var(--lazy-color-a00);
+    --web-wash: var(---a00);
 
-    --always-white: var(--lazy-color-b01);
-    --always-black: var(--lazy-color-b02);
+    --always-white: var(---b01);
+    --always-black: var(---b02);
 
-    --primary-text: var(--lazy-color-c01);
-    --secondary-text: var(--lazy-color-c02);
+    --primary-text: var(---c01);
+    --secondary-text: var(---c02);
 
-    --surface-background: var(--lazy-color-d01); /* chat list bg + sidebar bg */
-    --accent: var(--lazy-color-d02); /* unread message dot notif, */
-    --popover-background: var(--lazy-color-d03); /* chat menu button bg */
-    --divider: var(--lazy-color-d04); /* line that appears after scrolling in chat list, disabled toggle bg, deleted message blob border */
-    --hosted-view-selected-state: var(--lazy-color-d05); /* selection bg*/
-    --hover-overlay: var(--lazy-color-d06); /* selection hover bg*/
-    --press-overlay: var(--lazy-color-d07); /* selection press bg */
+    --surface-background: var(---d01); /* chat list bg + sidebar bg */
+    --accent: var(---d02); /* unread message dot notif, */
+    --popover-background: var(---d03); /* chat menu button bg */
+    --divider: var(---d04); /* line that appears after scrolling in chat list, disabled toggle bg, deleted message blob border */
+    --hosted-view-selected-state: var(---d05); /* selection bg*/
+    --hover-overlay: var(---d06); /* selection hover bg*/
+    --press-overlay: var(---d07); /* selection press bg */
     --scroll-thumb: var(--scroll-h); /* chat search scroll bar color*/
-    --switch-active: var(--lazy-color-f02); /* menu option toggle */
+    --switch-active: var(---f02); /* menu option toggle */
 
-    --messenger-card-background: var(--lazy-color-e01); /* chat box + chat info */
-    --comment-background: var(--lazy-color-e02); /* input box bg, embed footer blob bg */
-    --comment-footer-background: var(--lazy-color-e03); /* reply blob bg */
-    --base-lemon: var(--lazy-color-e04); /* search keyword highlight */
-    --wash: var(--lazy-color-e05); /* received message blob */
-    --fds-black-alpha-05: var(--lazy-color-e06); /* file attachment icon bg */
-    --placeholder-text: var(--lazy-color-e07); /* reply passive notif */
-    --disabled-text: var(--lazy-color-e08); /* deleted message text */
-    --mw-blockquote-border-start-color: var(--lazy-color-e09); /* quote block left border */
-    --base-lime: var(--lazy-color-e06); /* call started notif icon bg wtdf*/
-    --background-deemphasized: var(--lazy-color-d05); /* + button bg */
-    --input-background: var(--lazy-color-e12); /* fancy input box color*/
-    --input-border-color: var(--lazy-color-e13); /* fancy input box color*/
-    --input-label-color-highlighted: var(--lazy-color-e14); /* fancy input placeholder focus color*/
+    --messenger-card-background: var(---e01); /* chat box + chat info */
+    --comment-background: var(---e02); /* input box bg, embed footer blob bg */
+    --comment-footer-background: var(---e03); /* reply blob bg */
+    --base-lemon: var(---e04); /* search keyword highlight */
+    --wash: var(---e05); /* received message blob */
+    --fds-black-alpha-05: var(---e06); /* file attachment icon bg */
+    --placeholder-text: var(---e07); /* reply passive notif */
+    --disabled-text: var(---e08); /* deleted message text */
+    --mw-blockquote-border-start-color: var(---e09); /* quote block left border */
+    --base-lime: var(---e06); /* call started notif icon bg wtdf*/
+    --background-deemphasized: var(---d05); /* + button bg */
+    --input-background: var(---e12); /* fancy input box color*/
+    --input-border-color: var(---e13); /* fancy input box color*/
+    --input-label-color-highlighted: var(---e14); /* fancy input placeholder focus color*/
 
-    --card-background: var(--lazy-color-f01); /* floating window bg (emoji selector, menus)*/
-    --primary-button-background: var(--lazy-color-f02) !important;  /* confirm button  */
-    --disabled-button-background: var(--lazy-color-f03); /* s.e. */
-    --primary-deemphasized-button-background: var(--lazy-color-f04); /* e.g. send button */
-    --primary-deemphasized-button-text: var(--lazy-color-f05); 
-    --card-background-flat: var(--lazy-color-f01); /* hovered tooltip */
-    --warning: var(--lazy-color-f07) !important; /* delete confirm button */
+    --card-background: var(---f01); /* floating window bg (emoji selector, menus)*/
+    --primary-button-background: var(---f02) !important;  /* confirm button  */
+    --disabled-button-background: var(---f03); /* s.e. */
+    --primary-deemphasized-button-background: var(---f04); /* e.g. send button */
+    --primary-deemphasized-button-text: var(---f05); 
+    --card-background-flat: var(---f01); /* hovered tooltip */
+    --warning: var(---f07) !important; /* delete confirm button */
 
-    --secondary-button-background: var(--lazy-color-g01); /* passive icon background */
-    --secondary-button-background-floating: var(--lazy-color-g02); /* same but it floats (e.g go to bottom of chat button)*/
-    --non-media-pressed-on-dark: var(--lazy-color-g03); /* call icon hover bg */
-    --non-media-pressed: var(--lazy-color-g04); /* call icon pressed bg */
+    --secondary-button-background: var(---g01); /* passive icon background */
+    --secondary-button-background-floating: var(---g02); /* same but it floats (e.g go to bottom of chat button)*/
+    --non-media-pressed-on-dark: var(---g03); /* call icon hover bg */
+    --non-media-pressed: var(---g04); /* call icon pressed bg */
         
-    --fds-white-alpha-50: var(--lazy-color-c02); /* video seekbar bg buffer */
-    --fds-white-alpha-40: var(--lazy-color-c01); /* video seekbar bg length */
+    --fds-white-alpha-50: var(---c02); /* video seekbar bg buffer */
+    --fds-white-alpha-40: var(---c01); /* video seekbar bg length */
     
   }
   
@@ -466,7 +322,7 @@
   }
   
   div[data-scope="messages_table"] > div > div > div > span[style] > div[role="button"][tabindex][style] { /* show individual update. in chat*/
-    color: var(--lazy-color-c01) !important;
+    color: var(---c01) !important;
   }
 
   div[data-scope="messages_table"] div[style*="--mwp-reply-background-color"] { /* reply blob */
@@ -513,11 +369,7 @@
       background-image: linear-gradient(gradientAngleM, gradientColor1m, gradientColor2m), url(BG1) !important;
     }
     div:not([role="banner"]) > div > div[role="navigation"]{ /* the navigation background */
-      if color >= 2 {
-        background-image: linear-gradient(90deg, var(--wash), gradientColor2n), url(BG2) !important;
-      } else {
-        background-image: linear-gradient(90deg, gradientColor1n, gradientColor2n), url(BG2) !important;
-      }
+      background-image: linear-gradient(90deg, gradientColor1n, gradientColor2n), url(BG2) !important;
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -525,21 +377,11 @@
       border-radius: 1.5em; /* no easy fix on the message blob grouping */
     }
     
-    div[role="main"] > div > div > div[role="main"] > div > div > div:nth-child(1) > div + div[tabindex="-1"] > div > div > div:nth-child(1)[class] { /* chat bg */
-      if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
-        backdrop-filter: var(--bg-fg-prop-deblur); /* proprietary */
-      } else {
-        backdrop-filter: var(--bg-fg-nonprop-deblur); /* proprietary */
-      }
-    }
+
     div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/ 
     div[role="main"] > div > div > div[role="main"] > div > div > div > div  > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (facebook.com)*/ 
     div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (facebook.com)*/ { 
-      if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
-        backdrop-filter: var(--bg-fg-prop); /* proprietary */
-      } else {
         backdrop-filter: var(--bg-fg-nonprop);
-      }
     }
   }
     div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/ 
@@ -573,13 +415,13 @@
   } 
   
   div[role="main"] div {
-    --secondary-button-background: var(--lazy-color-g01) !important; /* vote button, join grp butt */
+    --secondary-button-background: var(---g01) !important; /* vote button, join grp butt */
   }
   
   div[role="dialog"] input[maxlength="140"] { /* custom fart (found on poll item addition/voting)*/
     background-color: #fff1;
     color: var(--primary-text);
-    border: var(--lazy-color-f05) 1px solid !important;
+    border: var(---f05) 1px solid !important;
     border-radius: 0.3em;
     padding: 3px;
   }
@@ -632,9 +474,9 @@
     filter: var(--img-icons);  
   }
   div[role="button"] > audio[autoplay] + audio[preload] + svg + div { /* call preview speakers seekbar */ 
-    background-color: var(--lazy-color-c02) !important;
+    background-color: var(---c02) !important;
   } div[role="button"] > audio[autoplay] + audio[preload] + svg + div > div{ /* call preview speakers seekbar seeked */ 
-    background-color: var(--lazy-color-c01) !important;
+    background-color: var(---c01) !important;
   }
   
   div[role="dialog"] div[tabindex="0"] /* gif preview */ { 
@@ -646,18 +488,18 @@
   
   div[role="button"] > div[role="listitem"] > div > div:nth-child(3) > div > div, /* call sharescreen perm toggle */
   div[role="region"] > div > div[role="listitem"] > div > div:nth-child(2) > div > div { /* chat info toggle */
-    --disabled-button-background: var(--lazy-color-f03) !important; 
+    --disabled-button-background: var(---f03) !important; 
     --secondary-button-background: #d8d8d814 !important;
     --toggle-active-background: var(--primary-button-background) !important; 
-    --always-white: var(--lazy-color-f05) ;
+    --always-white: var(---f05) ;
   }
   
   div[class="__fb-light-mode"] > div[style^="transform:"] { /* new convo box*/
-    --messenger-card-background: var(--lazy-color-f01);
+    --messenger-card-background: var(---f01);
   }
   
   div[class="__fb-light-mode"] > div[style^="transform:"] > span { /* overlay tooltip (facebook.com) */
-    background-color: var(--lazy-color-f01);
+    background-color: var(---f01);
   }
   
   /* firefox scrollbar stolen from another messenger style */
@@ -700,18 +542,11 @@
     border: 0;
   }
   a[href] { /* link underline */
-    text-decoration-color: var(--lazy-color-c02);
+    text-decoration-color: var(---c02);
   }
   
 } 
 
-/*
-@-moz-document url-prefix("http(|s):\\/\\/(|www.)(facebook|messenger).com/groupcall.*") {
-  div[class^="__fb-dark-mode"] > div > div > div > div > div { /* call end window bg 
-    --always-black: #000 !important;
-  }
-}
- okay no one cares */
 @-moz-document domain("messenger.com") { 
   
   div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div[class]:not([id]):not([role]):last-child { /* ad remove (messenger.com)*/
@@ -725,17 +560,11 @@
   }
       
   if (isBG == 1) {
-  
     div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ 
     div[role="main"] > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
     div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (messenger.com)*/ /* chat header bg  (messenger.com)*/ { 
-      if BG1 == "https://media4.giphy.com/media/3o85xEHXN1nJ8lkFos/giphy.gif" {
-        backdrop-filter: var(--bg-fg-prop); /* proprietary */
-      } else {
-        backdrop-filter: var(--bg-fg-nonprop);
-      }
+      backdrop-filter: var(--bg-fg-nonprop);
     }
-    
   }
 
   svg path /* most of icons (this was more effective than i thought it would be) (messenger.com)*/ {
