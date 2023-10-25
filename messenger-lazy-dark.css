@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        9
+@version        9.1
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -14,7 +14,7 @@
   "Black": "1",  
   "Dark": "0" 
 }
-@var checkbox isBG "Custom background" 0
+@var checkbox isBG "Custom background" 1
 @var text nothing "> Images can only come from photos uploaded in facebook. Example: " ""<fbcdn URL>""
 @var text BG1 "- Image URL Main " ""https://media.tenor.com/nr76QwvVCQUAAAAC/dark-flower.gif""
 @var text BG2 "- Image URL Navigation " ""https://media.tenor.com/dGd8YKkiFCgAAAAC/dark-flower.gif""
@@ -306,6 +306,7 @@
         
     --fds-white-alpha-50: var(---c02); /* video seekbar bg buffer */
     --fds-white-alpha-40: var(---c01); /* video seekbar bg length */
+    --progress-ring-neutral-foreground: var(---c02) /* audio seekbar ring color */
     
   }
   
@@ -373,7 +374,7 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-    div[data-scope="messages_table"]  span > div > div:nth-child(2):not([style]) /* gradient sent message blobs */  { 
+    div[data-scope="messages_table"] span > div > div:nth-child(2):not([style]) /* gradient sent message blobs */  { 
       border-radius: 1.5em; /* no easy fix on the message blob grouping */
     }
     
