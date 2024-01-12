@@ -2,7 +2,6 @@
 英語へ (to english)： https://userstyles.world/style/7074/
 
 ![7074](https://userstyles.world/preview/7074/7.webp)
-追伸: 写真の方は男です
 
 ### インストール
 - このブラウザプラグインがおすすめです: https://add0n.com/stylus.html
