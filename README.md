@@ -1,7 +1,7 @@
 # facebook messenger ウェッブ ダークモード userstyle
 英語へ (to english)： https://userstyles.world/style/7074/
 
-![7074](https://user-images.githubusercontent.com/36298836/218753658-229d3668-ef84-4747-8fb6-2ffd338d1e55.png)
+![7074](https://userstyles.world/preview/7074/7.webp)
 追伸: 写真の方は男です
 
 ### インストール
