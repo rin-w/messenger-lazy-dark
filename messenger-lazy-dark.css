@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        9.1
+@version        9.5
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -75,6 +75,7 @@
       --surface-background: #0000; /* chat list bg + sidebar bg */
       --messenger-card-background: #0000; /* chat box + chat info */
       --comment-footer-background: #ffffff08; /* reply blob bg */
+      --bg-tr: transparent; /* pain in the ass */
     } 
     div[role="main"] * { /* for (facebook.com) */
       --messenger-card-background: #0000; /* chat box + chat info */
@@ -82,6 +83,10 @@
     div[role="navigation"] * { /* for (facebook.com) */
       --surface-background: #0000; /* chat list bg + sidebar bg */
     }
+  } else {
+   .__fb-light-mode, .__fb-dark-mode {
+      --bg-tr: var(---e01); /* pain in the ass */
+   }
   }
   
   .__fb-dark-mode, .__fb-light-mode, * { /* theme coloring */
@@ -152,9 +157,15 @@
         ---e03: #ffffff15; 
       }
       ---e05: #202020; 
-      
-      --blob-bg: #ffffff0a;
-      --blob-bg-wbg: #202020;
+
+      if isBG == 0 {
+        --blob-bg: #202020;
+        --blob-bg-r: #20202096;
+      } else {
+        --blob-bg: #ffffff0a;
+        --blob-bg-r: #ffffff03;
+      }
+
       --img-icons: invert(.50);  
       --svg-icons: #fff7; 
       --scroll-h: #fff2;
@@ -198,8 +209,14 @@
       ---g03: #ff3ec83b;
       ---g04: #3800285c;
       
-      --blob-bg: #e050ba21;
-      --blob-bg-wbg: #3c1a2f;
+      if isBG == 0 {
+        --blob-bg: #3c1a2f;
+        --blob-bg-r: #3c1a2f96;
+      } else {
+        --blob-bg: #e050ba21;
+        --blob-bg-r: #e050ba14;
+      }
+
       --img-icons: invert(.75) sepia(100%) saturate(75) hue-rotate(-60deg) brightness(0.70); 
       --svg-icons: var(--accent); 
       --scroll-h: #c800914f;
@@ -247,9 +264,16 @@
       ---g02: #001738;
       ---g03: #3e8bff3b;
       ---g04: #0019385c;
-      
-      --blob-bg: #507ee021;
-      --blob-bg-wbg: #1e2547;
+
+
+      if isBG == 0 {
+        --blob-bg: #1e2547;
+        --blob-bg-r: #1e254796;
+      } else {
+        --blob-bg: #507ee021;
+        --blob-bg-r: #507ee014;
+      }
+
       --img-icons: invert(.75) sepia(100%) saturate(75) hue-rotate(-150deg) brightness(0.70); 
       --svg-icons: var(--accent); 
       --scroll-h: #2150c88c;
@@ -276,15 +300,18 @@
     --scroll-thumb: var(--scroll-h); /* chat search scroll bar color*/
     --switch-active: var(---f02); /* menu option toggle */
 
+    --chat-replied-message-background-color: var(--blob-bg-r);
     --messenger-card-background: var(---e01); /* chat box + chat info */
-    --comment-background: var(---e02); /* input box bg, embed footer blob bg */
+    --mwp-message-row-background: var(--bg-tr); /* pain in the ass */
+    --comment-background: var(---e02); /* input box bg */
+    --chat-incoming-message-bubble-background-color: var(---e02); /* embed footer blob bg */
     --comment-footer-background: var(---e03); /* reply blob bg */
     --base-lemon: var(---e04); /* search keyword highlight */
     --wash: var(---e05); /* received message blob */
     --fds-black-alpha-05: var(---e06); /* file attachment icon bg */
     --placeholder-text: var(---e07); /* reply passive notif */
     --disabled-text: var(---e08); /* deleted message text */
-    --mw-blockquote-border-start-color: var(---e09); /* quote block left border */
+    --chat-text-blockquote-color-background-line: var(---e09); /* quote block left border */
     --base-lime: var(---e06); /* call started notif icon bg wtdf*/
     --background-deemphasized: var(---d05); /* + button bg */
     --input-background: var(---e12); /* fancy input box color*/
@@ -316,10 +343,8 @@
   
   div[data-scope="messages_table"] span > div > div:not([style*="--wash"]) + div, /* gradient sent message blobs (the hole thingy) */ 
   div[data-scope="messages_table"] div[style^="curso"]:not([style*="--mwp-reply-background-color"]) /* recording blob */ ,
-  div[data-scope="messages_table"] div[style^="background-color:"]:not([style*="--mwp-reply-background-color"]) /* color sent message blobs */ {
-    if isBG == 0 { background-color: var(--blob-bg-wbg) !important; 
-    } else {       background-color: var(--blob-bg) !important;
-    }
+  div[data-scope="messages_table"] div[style^="background-color: var(--chat-incoming-message"]:not([style*="--mwp-reply-background-color"]) /* color sent message blobs */ {
+    background-color: var(--blob-bg) !important;
   }
   
   div[data-scope="messages_table"] > div > div > div > span[style] > div[role="button"][tabindex][style] { /* show individual update. in chat*/
@@ -343,7 +368,7 @@
     --always-white: #fff !important;
   }
   
-  div[data-scope="messages_table"] div[role="none"] { /* sent message text color override */
+  div[data-scope="messages_table"] * { /* sent message text color override */
     --always-white: var(--primary-text); 
     --wash: var(--blob-bg) !important;
     --secondary-text-on-media: var(--secondary-text) !important; /* sent blockquotes*/
@@ -556,19 +581,19 @@
 
   div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ 
   div[role="main"] > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
-  div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (messenger.com)*/ { 
+  div[role="main"] > div > div > div > div:nth-child(2) { /* chat sidebar bg  (messenger.com)*/ 
       background-color: var(--chat-enclosure-bg);
   }
       
   if (isBG == 1) {
     div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ 
     div[role="main"] > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
-    div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (messenger.com)*/ /* chat header bg  (messenger.com)*/ { 
+    div[role="main"] > div > div > div > div:nth-child(2) { /* chat sidebar bg  (messenger.com)*/ /* chat header bg  (messenger.com)*/ 
       backdrop-filter: var(--bg-fg-nonprop);
     }
   }
 
-  svg path /* most of icons (this was more effective than i thought it would be) (messenger.com)*/ {
+  svg path { /* most of icons (this was more effective than i thought it would be) (messenger.com)*/
     fill: var(--svg-icons);
   }
 }
