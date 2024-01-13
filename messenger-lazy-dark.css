@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        9.5
+@version        9.6
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -32,6 +32,9 @@
   .__fb-dark-mode, .__fb-light-mode {
     --overlay-alpha-80: rgba(11, 11, 11, 0.8);
     --secondary-button-text: #E4E6EB;
+    div.html-div { /* pain in the ass */
+      --messenger-card-background: #0000; /* navigation bg */
+    }
   }
   
   /* _/_/_/_/_/_/_/ lazy patches _/_/_/_/_/_/ */
@@ -299,6 +302,7 @@
     --press-overlay: var(---d07); /* selection press bg */
     --scroll-thumb: var(--scroll-h); /* chat search scroll bar color*/
     --switch-active: var(---f02); /* menu option toggle */
+    --circle-button-normal-background-color: var(---d05); /* options panel icon bg */
 
     --chat-replied-message-background-color: var(--blob-bg-r);
     --messenger-card-background: var(---e01); /* chat box + chat info */
