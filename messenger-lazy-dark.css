@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        9.6
+@version        9.7
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -25,6 +25,7 @@
 @var color gradientColor2m "- Gradient Main R" #000B
 @var color gradientColor1n "- Gradient Navigation L *" #000C
 @var color gradientColor2n "- Gradient Navigation R" #000E
+@var color listNavBG "- List Navigation BG" #111a
 ==/UserStyle== */
 
 @-moz-document regexp("http(|s):\\/\\/(|www.)(facebook.com\\/(mess|groupcall)|messenger.com).*") {
@@ -37,63 +38,23 @@
     }
   }
   
-  /* _/_/_/_/_/_/_/ lazy patches _/_/_/_/_/_/ */
-  
-  #facebook { /* firefox specific window scroll removal */
-    scrollbar-width: none;
-  }
-  #facebook::-webkit-scrollbar /* chrome specific window scrollbar removal */ {
-    display: none;
-  }
-  
-  div[role="navigation"] > div > div > div > div > div:last-child:not(:first-child):not(div[data-pagelet]):not(div[id]) { /* ad remove (facebook.com) */
-    display: none;
-  } /* for sudden major breakage
-  #facebook:after {
-    display:block;
-    position: absolute;
-    top:0.7em;
-    left: 70px;
-    color: #e3f900cf;
-    font-size: 14px;
-    background-color: #202020;
-    padding: 0.5em;
-    border: 1px #fff4 solid;
-    border-radius: 0.5em;
-    content: "Note: Style fixing on progress!";
-  } */
-  
-  a[aria-label="Facebook"] svg defs + path { /* facebook logo */
-    fill: var(---g01) !important;
-  }
-  
   if noSidebarbloat == 1 {
     div[role="navigation"] > div > div > div > div > div > div[data-pagelet]:not([id]) > div > div > div:nth-child(2){
       display: none;
     }
   }
   
-  if isBG == 1 { /* first pass (yes i know this magical spaghetti)*/
-   .__fb-light-mode, .__fb-dark-mode {
-      --surface-background: #0000; /* chat list bg + sidebar bg */
-      --messenger-card-background: #0000; /* chat box + chat info */
-      --comment-footer-background: #ffffff08; /* reply blob bg */
-      --bg-tr: transparent; /* pain in the ass */
-    } 
-    div[role="main"] * { /* for (facebook.com) */
-      --messenger-card-background: #0000; /* chat box + chat info */
+  if noSendEmojiButt == 1 {
+    div:not([class]) > div > span + div > div[style] > div[id] + div:not([id]) { /* message input box right borders*/
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
-    div[role="navigation"] * { /* for (facebook.com) */
-      --surface-background: #0000; /* chat list bg + sidebar bg */
+    div:not([class]) > div > span + div + span { /* the poopy button*/
+      display:none;
     }
-  } else {
-   .__fb-light-mode, .__fb-dark-mode {
-      --bg-tr: var(---e01); /* pain in the ass */
-   }
   }
   
-  .__fb-dark-mode, .__fb-light-mode, * { /* theme coloring */
-  
+  :root {
     color-scheme: dark; /* chrome specific */
   
     ---a00: #111;  /* --web-wash */
@@ -284,6 +245,9 @@
       --end-call: #35003e;
       --bg-fg-nonprop: blur(chatBoxSurrBlur);
     }
+  }
+  
+  .__fb-dark-mode, .__fb-light-mode, * { /* theme coloring */
     
     --web-wash: var(---a00);
 
@@ -299,18 +263,19 @@
     --divider: var(---d04); /* line that appears after scrolling in chat list, disabled toggle bg, deleted message blob border */
     --hosted-view-selected-state: var(---d05); /* selection bg*/
     --hover-overlay: var(---d06); /* selection hover bg*/
+    --pressable-background-color-hover: var(---d06); /* options sidebar selection hover bg*/
     --press-overlay: var(---d07); /* selection press bg */
     --scroll-thumb: var(--scroll-h); /* chat search scroll bar color*/
-    --switch-active: var(---f02); /* menu option toggle */
+    --switch-active: var(---f02); /* menu option toggle (facebook.com) */
+    --toggle-active-background: var(---f02); /* menu option toggle (messenger.com) */
     --circle-button-normal-background-color: var(---d05); /* options panel icon bg */
 
     --chat-replied-message-background-color: var(--blob-bg-r);
     --messenger-card-background: var(---e01); /* chat box + chat info */
-    --mwp-message-row-background: var(--bg-tr); /* pain in the ass */
     --comment-background: var(---e02); /* input box bg */
-    --chat-incoming-message-bubble-background-color: var(---e02); /* embed footer blob bg */
+    --chat-incoming-message-bubble-background-color: var(--blob-bg); /* embed footer blob bg */
     --comment-footer-background: var(---e03); /* reply blob bg */
-    --base-lemon: var(---e04); /* search keyword highlight */
+    --base-lemon: var(---e04); /* message search keyword highlight */
     --wash: var(---e05); /* received message blob */
     --fds-black-alpha-05: var(---e06); /* file attachment icon bg */
     --placeholder-text: var(---e07); /* reply passive notif */
@@ -318,11 +283,14 @@
     --chat-text-blockquote-color-background-line: var(---e09); /* quote block left border */
     --base-lime: var(---e06); /* call started notif icon bg wtdf*/
     --background-deemphasized: var(---d05); /* + button bg */
+    --comment-background: var(---e05); /* chat search bar */
+    --chat-composer-input-background-color: var(---e05);
     --input-background: var(---e12); /* fancy input box color*/
     --input-border-color: var(---e13); /* fancy input box color*/
     --input-label-color-highlighted: var(---e14); /* fancy input placeholder focus color*/
 
     --card-background: var(---f01); /* floating window bg (emoji selector, menus)*/
+    --shadow-inset: var(---f04); /* dialog box shadow border */
     --primary-button-background: var(---f02) !important;  /* confirm button  */
     --disabled-button-background: var(---f03); /* s.e. */
     --primary-deemphasized-button-background: var(---f04); /* e.g. send button */
@@ -341,41 +309,77 @@
     
   }
   
+  if isBG == 1 {
+    
+    [role="navigation"] + div *, /* new chat bg (messenger.com) */
+    [role="main"] div { /* new chat bg (facebook.com) */
+      --messenger-card-background: #0000; /* chat box + chat info */
+    }
+    
+    .__fb-light-mode {
+      --surface-background: #0000; /* chat list bg + sidebar bg */
+      --messenger-card-background: #0000; /* chat box + chat info */
+      --comment-background: var(---e12); /* chat search bar */
+      --chat-composer-input-background-color: var(---e12);
+    } 
+    
+    div[role="main"] { /* the chat background */
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      background-size: cover;
+      background-image: linear-gradient(gradientAngleM, gradientColor1m, gradientColor2m), url(BG1) !important;
+    }
+    div > div > div[role="navigation"] { /* the navigation background */
+      background-image: linear-gradient(90deg, gradientColor1n, gradientColor2n), url(BG2) !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    div[data-scope="messages_table"] span > div > div:nth-child(2):not([style]) /* gradient sent message blobs */  { 
+      border-radius: 1.5em; /* no easy fix on the message blob grouping */
+    }
+
+  }
+  
   div[role="main"] div[style*="background-image"] {  /* gradient bg */
     background-image: none !important;
   } 
+
+  div[role="main"] > div > div > div > div:nth-child(1) > div > div:nth-child(1), /* chat header bg */ 
+  div[role="main"] > div > div > div > div > div > div:nth-child(2) > div > div > div:not([class]) > div, /* chat footer bg */ 
+  div[role="main"] > div > div > div > div:nth-child(2) /* chat sidebar bg */  { 
+    background-color: var(--chat-enclosure-bg);
+    if (isBG == 1) {
+      backdrop-filter: var(--bg-fg-nonprop);
+    }
+  }
   
   div[data-scope="messages_table"] span > div > div:not([style*="--wash"]) + div, /* gradient sent message blobs (the hole thingy) */ 
-  div[data-scope="messages_table"] div[style^="curso"]:not([style*="--mwp-reply-background-color"]) /* recording blob */ ,
-  div[data-scope="messages_table"] div[style^="background-color: var(--chat-incoming-message"]:not([style*="--mwp-reply-background-color"]) /* color sent message blobs */ {
+  div[data-scope="messages_table"] div[style^="curso"] /* recording blob */ ,
+  div[data-scope="messages_table"] div[style^="background-color: var(--chat-incoming-message"] /* reply message blob */ {
     background-color: var(--blob-bg) !important;
   }
   
-  div[data-scope="messages_table"] > div > div > div > span[style] > div[role="button"][tabindex][style] { /* show individual update. in chat*/
-    color: var(---c01) !important;
-  }
-
-  div[data-scope="messages_table"] div[style*="--mwp-reply-background-color"] { /* reply blob */
-    --mwp-reply-background-color: var(--comment-footer-background) !important;
+  .__fb-light-mode > div[role="button"][tabindex][style] { /* [buttonlnk] show individual update. in chat*/
+    color: var(---d02) !important;
   }
   
   label, ::placeholder, /* mysterious poll text */
-  div[role="button"] > audio[autoplay] + audio[preload] + svg, /* call preview speakers button */ 
-  div[data-scope="messages_table"] div[style^="curso"]:not([style*="--mwp-reply-background-color"]) * /* recording misc */ { 
+  div[role="button"] > audio[autoplay] + audio[preload] + svg /* call preview speakers button */ { 
     color: var(--primary-text) !important; /* recording timestamp */
     --always-white: var(--blob-bg); /* recording timestamp blob bg */
   } 
   
-  div[role="navigation"] + div > div > div > div > div > div > div > div:nth-child(2) > div > div > div:not([class]) > div > div[style] { /* record blob main bottom */
+  div[role="main"] div:nth-child(2) > div > div > div:not([class]) > div > div[style] { /* start record blob */
     background-color: var(--blob-bg) !important;
-  } div[role="navigation"] + div > div > div > div > div > div > div > div:nth-child(2) > div > div > div:not([class]) > div > div[style] > div:first-child { /* record blob main bottom seek */
-    --always-white: #fff !important;
+    * {
+      --always-white: var(---d06);
+      color: var(--primary-text) !important;
+    }
   }
   
   div[data-scope="messages_table"] * { /* sent message text color override */
     --always-white: var(--primary-text); 
     --wash: var(--blob-bg) !important;
-    --secondary-text-on-media: var(--secondary-text) !important; /* sent blockquotes*/
   }
   
   div[role="slider"] > div > div:nth-child(2), /* video seekbar seeked color */
@@ -385,67 +389,12 @@
     --always-white: var(--primary-text) !important;
   }
   
-  if isBG == 1 {
-    .__fb-light-mode {
-      --surface-background: #0000; /* chat list bg + sidebar bg */
-      --messenger-card-background: #0000; /* chat box + chat info */
-    } 
-    
-    
-    div[role="main"] { /* the chat backgroud */
-      background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: cover;
-      background-image: linear-gradient(gradientAngleM, gradientColor1m, gradientColor2m), url(BG1) !important;
-    }
-    div:not([role="banner"]) > div > div[role="navigation"]{ /* the navigation background */
-      background-image: linear-gradient(90deg, gradientColor1n, gradientColor2n), url(BG2) !important;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    div[data-scope="messages_table"] span > div > div:nth-child(2):not([style]) /* gradient sent message blobs */  { 
-      border-radius: 1.5em; /* no easy fix on the message blob grouping */
-    }
-    
-
-    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/ 
-    div[role="main"] > div > div > div[role="main"] > div > div > div > div  > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (facebook.com)*/ 
-    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (facebook.com)*/ { 
-        backdrop-filter: var(--bg-fg-nonprop);
-    }
-  }
-    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (facebook.com)*/ 
-    div[role="main"] > div > div > div[role="main"] > div > div > div > div  > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (facebook.com)*/ 
-    div[role="main"] > div > div > div[role="main"] > div > div > div > div:nth-child(2), /* chat sidebar bg  (facebook.com)*/ { 
-      background-color: var(--chat-enclosure-bg); }
-  
-
-    div:not([class]) > div > span + div > div:nth-child(6), /* non sensical svg blocks*/ 
-    div:not([class]) > div > span + div > div:nth-child(7) /* non sensical svg blocks*/  {
-      display:none;
-    }
   div[role="navigation"] > div > div:nth-child(1) { /* chat list nav | for neighbor style workaround */
-    background-color: #111e;
-  }
-    
-  if noSendEmojiButt == 1 {
-    div:not([class]) > div > span + div > div[style] > div[id] + div:not([id]) { /* message input box right borders*/
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+    if isBG {
+      background-color: listNavBG;
+    } else {
+      background-color: #111a;
     }
-    div:not([class]) > div > span + div + span { /* the poopy button*/
-      display:none;
-    }
-  }
-  
-    
-  div[role="navigation"] + div > div > div > div[role="main"] > div > div > div > div[tabindex] > div[tabindex] > div > div:not([class]) > div > div > div[style]:nth-child(4) > div:nth-child(2) > div:nth-child(1) > input + div, /* add attachment button (pre attachment) */
-  div[role="navigation"] + div > div > div > div[role="main"] > div > div > div > div[tabindex] > div[tabindex] > div > div:not([class]) > div > div > div[style]:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:not([role="button"]) > div:nth-child(1):not([role="textbox"])  { /* file pre attachment */
-    background-color: var(--blob-bg);
-  } 
-  
-  div[role="main"] div {
-    --secondary-button-background: var(---g01) !important; /* vote button, join grp butt */
   }
   
   div[role="dialog"] input[maxlength="140"] { /* custom fart (found on poll item addition/voting)*/
@@ -456,43 +405,32 @@
     padding: 3px;
   }
   
-  
-  svg path:not([fill][stroke]),
-  svg path[fill^="#"], /* most of icons (this was more effective than i thought it would be) (facebook.com)*/
-  svg > g > circle[fill^="#"], 
-  svg > rect[fill^="#"] { 
-    fill: var(--svg-icons);
-  } 
-    div[role="button"] > svg > path[fill]:not([stroke="none"]) { /* header icons (facebook.com) */
+  svg {
+    --placeholder-icon: var(--svg-icons); /* hidden hover message buttons */
+    --chat-composer-button-color: var(--svg-icons);
+    --mwp-header-button-color: var(--svg-icons);
+    --color: var(--svg-icons) !important;
+    
+    [fill^="#"],
+    &[style="--color: var(--primary-icon);"] /* home icon in menu (remove)*/ {
       fill: var(--svg-icons);
-    }  div[role="button"] > div > svg > g > path[stroke],
-      svg > rect[stroke^="#"]{
-      stroke: var(--svg-icons);
-    } div > svg > path[fill="none"], 
-     div[role="button"] > svg > g > path[stroke] { /* header icons (facebook.com) */
-      stroke: var(--svg-icons);
-      fill: revert;
-    } div[role="button"] > div > div:nth-child(1)[style^="background-color"]:not([style*="var(--"]):not([role]) { /* header icons active (facebook.com) */
-      background-color: var(--accent) !important; 
     }
-  div[role="main"] div[role] svg circle,
-  div[role="main"] div[role] svg path { /* hidden hover message buttons */
-    --placeholder-icon: var(--svg-icons) !important;
-  }
-  div[role="menuitem"] svg > rect{ /* poll icon on chat menu */
-    fill: var(--svg-icons) !important; 
-  }svg[fill="var(--card-background)"] > path { /* whoops (on the popup menu tail) */
-    fill: revert !important;
+    
   }
   
-  div[role="progressbar"] img,
-  div[role] i[data-visualcompletion="css-img"] { /* non-svg icons */
+  div[role="progressbar"] img, /* loading icon */
+  div[role] i[data-visualcompletion="css-img"] { /* non-svg icons (not very effective) */
     filter: var(--img-icons);  
   } div[role="main"] form div[aria-disabled="true"][role="button"] > i[data-visualcompletion="css-img"][style] { /* message search ribbon disabled button workaround */
     opacity: .3;
   }  
   
-  div[data-scope="messages_table"] div[style] ul > li > div > div[style] { /* poll vote bar */
+  .always-enable-animations[role="progressbar"],
+  .always-enable-animations[role="progressbar"] > div { /* loading bar top */
+    background-color: var(---d02)
+  }
+  
+  div[data-scope="messages_table"] div + ul > li > div > div[style] { /* poll vote progress bar */
     background-color: var(--poll-vote) !important;
   }
     
@@ -509,9 +447,10 @@
     background-color: var(---c01) !important;
   }
   
-  div[role="dialog"] div[tabindex="0"] /* gif preview */ { 
+  div[role="dialog"] div[tabindex="0"] /* media view */ { 
     --always-black: #000;
   } 
+  
   div[style*="#FF443D"] {
     --secondary-button-background: var(--end-call) !important;
   }
@@ -524,43 +463,35 @@
     --always-white: var(---f05) ;
   }
   
-  div[class="__fb-light-mode"] > div[style^="transform:"] { /* new convo box*/
-    --messenger-card-background: var(---f01);
-  }
   
-  div[class="__fb-light-mode"] > div[style^="transform:"] > span { /* overlay tooltip (facebook.com) */
-    background-color: var(---f01);
+  #facebook { /* firefox specific window scroll removal */
+    scrollbar-width: none;
+  }
+  #facebook::-webkit-scrollbar /* chrome specific window scrollbar removal */ {
+    display: none;
   }
   
   /* firefox scrollbar stolen from another messenger style */
   body div { 
     scrollbar-width: thin;
     scrollbar-color: var(--scroll-h)#fff0;
-  } body div[role="navigation"] + div div { /* against gradient bg*/
-    scrollbar-color: var(--scroll-h) var(--messenger-card-background);
-  }
+  } 
   
   /* chrome scrollbar stolen from another messenger style*/
   body ::-webkit-scrollbar {
-      width: 14px;
-      height: 14px;
-  } div[role="navigation"] + div ::-webkit-scrollbar-track { /* against gradient bg */
-    background-color: var(--messenger-card-background);
+    width: 14px;
+    height: 14px;
   } ::-webkit-scrollbar-track:hover {
-      background-color: var(--blob-bg) !important;
+    background-color: var(--blob-bg) !important;
   } 
 
-  div[role="navigation"] ::-webkit-scrollbar-thumb,
-  div[role="navigation"] + div ::-webkit-scrollbar-thumb { 
-      background-color: #fff0;
-  }  
   div[class="__fb-light-mode"] > div[style^="transform:"]:hover  ::-webkit-scrollbar-thumb, /* new convo box*/
   div[role="navigation"] + div:hover ::-webkit-scrollbar-thumb,
   div[role="navigation"]:hover ::-webkit-scrollbar-thumb { 
-      background-color: var(--scroll-h);
-      background-clip: padding-box;
-      border: 3px solid transparent;
-      border-radius: 10px;
+    background-color: var(--scroll-h);
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-radius: 10px;
   }
   
   ::selection {
@@ -583,21 +514,16 @@
     display: none;
   }
 
-  div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ 
-  div[role="main"] > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
-  div[role="main"] > div > div > div > div:nth-child(2) { /* chat sidebar bg  (messenger.com)*/ 
-      background-color: var(--chat-enclosure-bg);
-  }
-      
-  if (isBG == 1) {
-    div[role="main"] > div > div > div > div:nth-child(1) > div:not([tabindex="-1"]), /* chat header bg  (messenger.com)*/ 
-    div[role="main"] > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2), /* chat footer bg  (messenger.com)*/ 
-    div[role="main"] > div > div > div > div:nth-child(2) { /* chat sidebar bg  (messenger.com)*/ /* chat header bg  (messenger.com)*/ 
-      backdrop-filter: var(--bg-fg-nonprop);
-    }
-  }
+}
 
-  svg path { /* most of icons (this was more effective than i thought it would be) (messenger.com)*/
-    fill: var(--svg-icons);
+@-moz-document domain("facebook.com") { 
+ 
+  div[role="navigation"] > div > div > div > div > div:last-child:not(:first-child):not(div[data-pagelet]):not(div[id]) { /* ad remove (facebook.com) */
+    display: none;
   }
+  
+  div[class="__fb-light-mode"] > div[style^="transform:"] > div:not([style]) { /* overlay tooltip (facebook.com) */
+    background-color: var(--card-background-flat);
+  }
+  
 }
