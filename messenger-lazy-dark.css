@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           messenger lazy dark
 @namespace      stdio.h
-@version        9.8
+@version        10.3
 @description    version zucc mode
 @author         7aint
 @updateURL      https://userstyles.world/api/style/7074.user.css
@@ -10,6 +10,8 @@
 @var checkbox noSidebarbloat "Remove messenger.com sidebar bloat" 0
 @var select color "Color" { 
   "Pink": "2",
+  "Violet": "5",
+  "Yellow": "4",
   "Blue": "3",
   "Black": "1",  
   "Dark": "0" 
@@ -31,17 +33,9 @@
 @-moz-document regexp("http(|s):\\/\\/(|www.)(facebook.com\\/(mess|groupcall)|messenger.com).*") {
   
   .__fb-dark-mode, .__fb-light-mode {
+    color: var(--primary-text)
     --overlay-alpha-80: rgba(11, 11, 11, 0.8);
     --secondary-button-text: #E4E6EB;
-    div.html-div { /* pain in the ass */
-      --messenger-card-background: #0000; /* navigation bg */
-    }
-  }
-  
-  if noSidebarbloat == 1 {
-    div[role="navigation"] > div > div > div > div > div > div[data-pagelet]:not([id]) > div > div > div:nth-child(2){
-      display: none;
-    }
   }
   
   if noSendEmojiButt == 1 {
@@ -64,7 +58,7 @@
     
     ---c01: #fffa; /* --primary-text */
     ---c02: #828282 ; /* --secondary-text */
-    
+
     ---d01: #ffffff03; /* --surface-background */
     ---d02: #aaa; /* --accent */
     ---d03: #252527; /* --popover-background */
@@ -100,13 +94,22 @@
     
     --bg-fg-nonprop: blur(chatBoxSurrBlur);
     --chat-enclosure-bg: chatBoxSurrBG;
-    --blob-bg: #fff1;
-    --blob-bg-wbg: #333;
-    --img-icons: invert(.75);  
-    --svg-icons: #fff9; 
-    --scroll-h: #fff4;
+
     --poll-vote: #fff7;
     --end-call: #e600006e;
+
+    if color == 0 {
+      if isBG == 0 {
+        --blob-bg: #fff1;
+        --blob-bg-r: #11111196;
+      } else {
+        --blob-bg: #ffffff21;
+        --blob-bg-r: #ffffff17;
+      }
+      --img-icons: invert(.75);  
+      --svg-icons: #fff9; 
+      --scroll-h: #fff4;
+    }
     
     if color == 1 {
       ---c01: #fff9; 
@@ -138,7 +141,7 @@
       ---c01: #f1b8dab3;
       ---c02: #f97cc46e;
 
-      ---d01: #5a2b4212;
+      ---d01: #290215ed;
       ---d02: #a43474;
       ---d03: #252527;
       ---d04: #4400286e;
@@ -175,7 +178,7 @@
       
       if isBG == 0 {
         --blob-bg: #3c1a2f;
-        --blob-bg-r: #3c1a2f96;
+        --blob-bg-r: #200b1896;
       } else {
         --blob-bg: #e050ba21;
         --blob-bg-r: #e050ba14;
@@ -190,13 +193,13 @@
       
     } if color == 3 {
       ---c01: #b8c6f1b3;
-      ---c02: #7cbbf96e;
+      ---c02: #7cbbf99e;
 
-      ---d01: #2b345a12;
-      ---d02: #3452a4;
+      ---d01: #010618;
+      ---d02: #3863d9;
       ---d03: #252627;
       ---d04: #0016446e;
-      ---d05: #2b81e40f;
+      ---d05: #061629d1;
       ---d06: #72b9ff17;
       ---d07: #9ad7ff36;
       ---d08: #fff;
@@ -231,8 +234,8 @@
 
 
       if isBG == 0 {
-        --blob-bg: #1e2547;
-        --blob-bg-r: #1e254796;
+        --blob-bg: #20284f;
+        --blob-bg-r: #111429e6;
       } else {
         --blob-bg: #507ee021;
         --blob-bg-r: #507ee014;
@@ -244,10 +247,115 @@
       --poll-vote: #00479977;
       --end-call: #35003e;
       --bg-fg-nonprop: blur(chatBoxSurrBlur);
+
+    } if color == 4 {
+      ---c01: #EFD8B2B3;
+      ---c02: #f8bb6c6e;
+
+      ---d01: #251102f2;
+      ---d02: #d57c08;
+      ---d03: #242422;
+      ---d04: #4228006E;
+      ---d05: #1a1501d4;
+      ---d06: #FFE97017;
+      ---d07: #FFDE9936;
+
+      ---e01: #2b1205;
+      ---e02: #B186102B;
+      ---e03: #F7FF141A;
+      ---e04: #F6D72742;
+      ---e05: #FFE9000A;
+      ---e06: #00000045;
+      ---e07: #8E7E3D;
+      ---e08: #6B643C;
+      ---e09: #AC9C4380;
+      ---e12: #5B540073;
+      ---e13: #97884E;
+      ---e14: #c4b287;
+      
+      ---f01: #1d1306eb;
+      ---f02: #692600;
+      ---f03: #2D2919;
+      ---f04: #ffa60011;
+      ---f05: #ffce84aa;
+      ---f07: #FF2A00A1;
+
+      ---g01: #141300D1;
+      ---g02: #332B00;
+      ---g03: #FFEE3D3B;
+      ---g04: #3133005C;
+
+
+      if isBG == 0 {
+        --blob-bg: #42210c;
+        --blob-bg-r: #1a100a96;
+      } else {
+        --blob-bg: #dea74e21;
+        --blob-bg-r: #dea94e14;
+      }
+
+      --img-icons: invert(.75) sepia(100%) saturate(100) hue-rotate(30deg) brightness(0.70); 
+      --svg-icons: var(--accent); 
+      --scroll-h: #C490218C;
+      --poll-vote: #998C0077;
+      --end-call: #3D1100;
+      --bg-fg-nonprop: blur(chatBoxSurrBlur);
+
+    } if color == 5 {
+      ---c01: #c6afeebd;
+      ---c02: #b468f79c;
+
+      ---d01: #210a44f2;
+      ---d02: #7535cf;
+      ---d03: #212021;
+      ---d04: #16003D6E;
+      ---d05: #0c022be6;
+      ---d06: #976BFF17;
+      ---d07: #B799FF36;
+
+      ---e01: #251140;
+      ---e02: #5B10AC2B;
+      ---e03: #670FFF1A;
+      ---e04: #990FF542;
+      ---e05: #7B00FF0A;
+      ---e06: #00000045;
+      ---e07: #5C3C8A;
+      ---e08: #563A68;
+      ---e09: #6A41A480;
+      ---e12: #29005673;
+      ---e13: #7F4D92;
+      ---e14: #9D83C2;
+      
+      ---f01: #0F0519EB;
+      ---f02: #8C00B7;
+      ---f03: #23172A;
+      ---f04: #8700FF11;
+      ---f05: #AE7FFFAA;
+      ---f07: #FF2A00A1;
+
+      ---g01: #09000FD1;
+      ---g02: #180033;
+      ---g03: #6632FF3B;
+      ---g04: #1500335C;
+
+      if isBG == 0 {
+        --blob-bg: #190B3C;
+        --blob-bg-r: #0E081696;
+      } else {
+        --blob-bg: #8c42db38;
+        --blob-bg-r: #8446db26;
+      }
+
+      --img-icons: invert(.75) sepia(100%) saturate(100) hue-rotate(-90deg) brightness(0.70); 
+      --svg-icons: var(--accent); 
+      --scroll-h: #701FB78C;
+      --poll-vote: #5B009977;
+      --end-call: #3D1100;
+      --bg-fg-nonprop: blur(chatBoxSurrBlur);
     }
   }
   
-  .__fb-dark-mode, .__fb-light-mode, * { /* theme coloring */
+  .__fb-dark-mode, .__fb-light-mode { /* theme coloring */
     
     --web-wash: var(---a00);
 
@@ -256,6 +364,7 @@
 
     --primary-text: var(---c01);
     --secondary-text: var(---c02);
+    --chat-admin-text-color: var(---c02); /* chat message meta display */
 
     --surface-background: var(---d01); /* chat list bg + sidebar bg */
     --accent: var(---d02); /* unread message dot notif, */
@@ -267,17 +376,19 @@
     --press-overlay: var(---d07); /* selection press bg */
     --scroll-thumb: var(--scroll-h); /* chat search scroll bar color*/
     --switch-active: var(---f02); /* menu option toggle (facebook.com) */
-    --toggle-active-background: var(---f02); /* menu option toggle (messenger.com) */
+    --toggle-active-background: var(---f02) !important; /* menu option toggle (messenger.com) */
     --circle-button-normal-background-color: var(---d05); /* options panel icon bg */
 
     --chat-replied-message-background-color: var(--blob-bg-r);
     --messenger-card-background: var(---e01); /* chat box + chat info */
     --comment-background: var(---e02); /* input box bg */
-    --chat-incoming-message-bubble-background-color: var(--blob-bg);
-    --chat-outgoing-message-bubble-background-color: var(--blob-bg);
+    --chat-incoming-message-bubble-background-color: var(--blob-bg) !important;
+    --chat-outgoing-message-bubble-background-color: var(--blob-bg) !important;
+    --chat-outgoing-message-background-gradient: var(--blob-bg) !important; /* reply blob gradient */
     --comment-footer-background: var(---e03); /* reply blob bg */
     --base-lemon: var(---e04); /* message search keyword highlight */
-    --wash: var(---e05); /* received message blob */
+    --wash: var(---e07); /* skeleton */
+    --placeholder-icon: var(---e07); /* skeleton (facebook.com) */
     --fds-black-alpha-05: var(---e06); /* file attachment icon bg */
     --placeholder-text: var(---e07); /* reply passive notif */
     --disabled-text: var(---e08); /* deleted message text */
@@ -296,7 +407,7 @@
     --disabled-button-background: var(---f03); /* s.e. */
     --primary-deemphasized-button-background: var(---f04); /* e.g. send button */
     --primary-deemphasized-button-text: var(---f05); 
-    --card-background-flat: var(---f01); /* hovered tooltip */
+    --card-background-flat: var(---f01) !important; /* hovered tooltip */
     --warning: var(---f07) !important; /* delete confirm button */
 
     --secondary-button-background: var(---g01); /* passive icon background */
@@ -307,31 +418,30 @@
         
     --fds-white-alpha-50: var(---c02); /* video seekbar bg buffer */
     --fds-white-alpha-40: var(---c01); /* video seekbar bg length */
-    --progress-ring-neutral-foreground: var(---c02) /* audio seekbar ring color */
+    --progress-ring-neutral-foreground: var(---c02); /* audio seekbar ring color */
+    --placeholder-text-on-media: var(---d05); /* audio speed indicator bg */
     
   }
   
   if isBG == 1 {
     
-    [role="navigation"] + div *, /* new chat bg (messenger.com) */
-    [role="main"] div { /* new chat bg (facebook.com) */
-      --messenger-card-background: #0000; /* chat box + chat info */
-    }
-    
-    .__fb-light-mode {
-      --surface-background: #0000; /* chat list bg + sidebar bg */
-      --messenger-card-background: #0000; /* chat box + chat info */
-      --comment-background: var(---e12); /* chat search bar */
+    div[role="navigation"] + div > div, /* new chat bg replace (messenger.com) */
+    div[role="main"] > div > div, /* new chat bg replace (facebook.com) */
+    div[role="navigation"] > div, /* nav bg color replace (facebook.com) */
+    .__fb-dark-mode, .__fb-light-mode {
+      --surface-background: #0000;
+      --messenger-card-background: #0000;
+      --comment-background: var(---e12);
       --chat-composer-input-background-color: var(---e12);
-    } 
-    
+    }
+
     div[role="main"] { /* the chat background */
       background-repeat: no-repeat;
       background-position: 50% 0;
       background-size: cover;
       background-image: linear-gradient(gradientAngleM, gradientColor1m, gradientColor2m), url(BG1) !important;
     }
-    div > div > div[role="navigation"] { /* the navigation background */
+    div[role="navigation"], div + div[role="navigation"] { /* the navigation background */
       background-image: linear-gradient(90deg, gradientColor1n, gradientColor2n), url(BG2) !important;
       background-repeat: no-repeat;
       background-size: cover;
@@ -339,11 +449,7 @@
 
   }
   
-  div[role="main"] div[style*="background-image"] {  /* gradient bg */
-    background-image: none !important;
-  } 
-
-  div[role="main"] > div > div > div > div:nth-child(1) > div > div:nth-child(1), /* chat header bg */ 
+  [data-pagelet="MWInboxDetail"] > div[role="main"] > div > div > div > div:nth-child(1) > div > div:nth-child(1) > div, /* chat header bg */ 
   div[role="main"] > div > div > div > div > div > div:nth-child(2) > div > div > div:not([class]) > div, /* chat footer bg */ 
   div[role="main"] > div > div > div > div:nth-child(2) /* chat sidebar bg */  { 
     background-color: var(--chat-enclosure-bg);
@@ -352,30 +458,32 @@
     }
   }
   
-  div[data-scope="messages_table"] div[style^="curso"] /* recording blob */ ,
-  div[data-scope="messages_table"] div[style^="background-color: var(--chat-incoming-message"] /* reply message blob */ {
+  div[data-scope="messages_table"] div[style*="background-color: r"] { /* hyperlink embed reply message / recording blob */
     background-color: var(--blob-bg) !important;
   }
-  
-  .__fb-light-mode > div[role="button"][tabindex][style] { /* [buttonlnk] show individual update. in chat*/
+
+  div[style^="color: rgb"] { /* [buttonlnk] show individual update. in chat*/
     color: var(---d02) !important;
   }
   
   label, ::placeholder, /* mysterious poll text */
-  div[role="button"] > audio[autoplay] + audio[preload] + svg /* call preview speakers button */ { 
+  div[role="button"] > audio[autoplay] + audio[preload] + svg { /* call preview speakers button */ 
     color: var(--primary-text) !important; /* recording timestamp */
     --always-white: var(--blob-bg); /* recording timestamp blob bg */
   } 
   
   div[role="main"] div:nth-child(2) > div > div > div:not([class]) > div > div[style] { /* start record blob */
     background-color: var(--blob-bg) !important;
-    * {
-      --always-white: var(---d06);
+    div {
+      --always-white: var(---e06);
       color: var(--primary-text) !important;
+    }
+    > div > div:first-child { /* seek */
+      opacity: .6;
     }
   }
   
-  div[data-scope="messages_table"] * { /* sent message text color override */
+  div[data-scope="messages_table"] div { /* sent message text color override */
     --always-white: var(--primary-text); 
     --wash: var(--blob-bg) !important;
   }
@@ -385,14 +493,6 @@
     background-color: var(--accent);
   } video + div { /* video timestamp text color */
     --always-white: var(--primary-text) !important;
-  }
-  
-  div[role="navigation"] > div > div:nth-child(1) { /* chat list nav | for neighbor style workaround */
-    if isBG {
-      background-color: listNavBG;
-    } else {
-      background-color: #111a;
-    }
   }
   
   div[role="dialog"] input[maxlength="140"] { /* custom fart (found on poll item addition/voting)*/
@@ -408,12 +508,10 @@
     --chat-composer-button-color: var(--svg-icons);
     --mwp-header-button-color: var(--svg-icons);
     --color: var(--svg-icons) !important;
-    
-    [fill^="#"],
-    &[style="--color: var(--primary-icon);"] /* home icon in menu (remove)*/ {
+
+    [fill^="#"] {
       fill: var(--svg-icons);
     }
-    
   }
   
   div[role="progressbar"] img, /* loading icon */
@@ -453,12 +551,10 @@
     --secondary-button-background: var(--end-call) !important;
   }
   
-  div[role="button"] > div[role="listitem"] > div > div:nth-child(3) > div > div, /* call sharescreen perm toggle */
-  div[role="region"] > div > div[role="listitem"] > div > div:nth-child(2) > div > div { /* chat info toggle */
+  div[role="button"] > div[role="listitem"] > div > div:nth-child(3) > div > div { /* call sharescreen perm toggle */
     --disabled-button-background: var(---f03) !important; 
     --secondary-button-background: #d8d8d814 !important;
-    --toggle-active-background: var(--primary-button-background) !important; 
-    --always-white: var(---f05) ;
+    --always-white: var(---f05);
   }
   
   
@@ -472,7 +568,7 @@
   /* firefox scrollbar stolen from another messenger style */
   body div { 
     scrollbar-width: thin;
-    scrollbar-color: var(--scroll-h)#fff0;
+    scrollbar-color: var(--scroll-h) #fff0;
   } 
   
   /* chrome scrollbar stolen from another messenger style*/
@@ -493,7 +589,7 @@
   }
   
   ::selection {
-    background-color: /*var(--secondary-text)*/ #0000;
+    background-color: #0000;
     color: #fff;
     text-decoration: underline;
   }
@@ -508,20 +604,52 @@
 
 @-moz-document domain("messenger.com") { 
   
-  div[role="navigation"] > div > div:nth-child(2) > div > div > div > div > div[class]:not([id]):not([role]):last-child { /* ad remove (messenger.com)*/
+  if noSidebarbloat == 1 {
+    div[role="navigation"] > div > div > div > div > div[data-pagelet]:not([id]) > div > div > div:nth-child(2) {
+      display: none;
+    }
+  }
+  
+  div[role="navigation"] + div[role="navigation"] > div[class]:not([id]):not([role]):last-child > div:has(a:first-child) { /* ad remove (messenger.com)*/
     display: none;
   }
 
+  div[role="navigation"]:first-child { /* chat list nav | for neighbor style workaround */
+    if isBG {
+      background-image: unset !important;
+      background-color: listNavBG;
+    } else {
+      background-color: #111a;
+      + div[role="navigation"] {
+        > header,
+        > div {
+          background-color: #0005;
+        }
+      }
+    }
+  }
+
+  .__fb-light-mode[style*="--secondary-button-background"]{ /* toggle button (messenger.com) */
+    --secondary-button-background: var(---f03) !important
+  }
+
+  .__fb-light-mode > div > .__fb-dark-mode span { /* overlay tooltip text color (messenger.com) */
+    --primary-text: var(---c01) !important
+  }
 }
 
 @-moz-document domain("facebook.com") { 
  
-  div[role="navigation"] > div > div > div > div > div:last-child:not(:first-child):not(div[data-pagelet]):not(div[id]) { /* ad remove (facebook.com) */
+  div[role="navigation"] > div > div > div > div:last-child:not(:first-child):not(div[data-pagelet]):not(div[id]) { /* ad remove (facebook.com) */
     display: none;
   }
   
-  div[class="__fb-light-mode"] > div[style^="transform:"] > div:not([style]) { /* overlay tooltip (facebook.com) */
+  div.__fb-light-mode > div[style^="transform:"] > div:not([style]) { /* overlay tooltip (facebook.com) */
     background-color: var(--card-background-flat);
   }
-  
+
+  .__fb-dark-mode[style*="--secondary-button-background"] { /* vote button (facebook.com) */
+    --secondary-button-background: var(---f03) !important
+  }
+
 }
